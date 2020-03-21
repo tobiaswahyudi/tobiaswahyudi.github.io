@@ -8,6 +8,21 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Merriweather`,
+            variants: [`700`,`900`]
+          },
+          {
+            family: `Overpass`,
+            variants: [`200`,`300`,`400`,`400i`,`600`]
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
