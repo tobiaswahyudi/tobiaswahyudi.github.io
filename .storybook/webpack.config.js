@@ -18,6 +18,22 @@ module.exports = ({ config }) => {
     require.resolve("babel-plugin-remove-graphql-queries"),
   ]
 
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: [
+        { loader: require.resolve('style-loader') },
+        {
+            loader: require.resolve('css-loader'),
+            options: {
+                importLoaders: 1,
+                modules: true,
+                sourceMap: true,
+            },
+        },
+        { loader: require.resolve('sass-loader') },
+    ]
+})
+
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   config.resolve.mainFields = ["browser", "module", "main"]
 
