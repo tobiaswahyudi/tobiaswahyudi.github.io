@@ -18,7 +18,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages/content`,
+        path: `${__dirname}/src/content`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -39,6 +39,7 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: ["gatsby-remark-autolink-headers"],
+        "excerpt_separator": `<!-- end -->`
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
