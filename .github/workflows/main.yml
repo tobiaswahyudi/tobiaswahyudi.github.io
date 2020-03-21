@@ -1,14 +1,22 @@
-name: CI
-on:
-  push:
-    branches: [ master ]
-
+name: Build and Deploy
+on: [push]
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
-    steps:    
-    - uses: actions/checkout@v2
+      - name: Install and Build 🔧
+        run: |
+          yarn install
+          yarn build
 
-    - name: Build Gatsby project and deploy to github pages
-      run: gatsby build --verbose && gh-pages -d public -b gh-pages
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public
