@@ -17,7 +17,7 @@ module.exports = {
           },
           {
             family: `Overpass`,
-            variants: [`200`,`300`,`400`,`400i`,`600`]
+            variants: [`100`,`300`,`400`,`400i`,`600`]
           },
         ],
       },
