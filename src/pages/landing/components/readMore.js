@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import './readMore.scss'
 
-const ReadMore = ({ path }) => {
+const ReadMore = ({ path = '/' }) => {
   return (
     <div className="read-more">
       <Link to={path}>

@@ -1,9 +1,9 @@
 import React from 'react'
-
-import './index.scss'
 import { Link } from 'gatsby'
 
-import ReadMore from '../../components/readMore.js'
+import './index.scss'
+
+import ReadMore from './components/readMore.js'
 
 const LandingPage = ({ work, projects }) => {
   return (
@@ -38,9 +38,9 @@ export const LandingPageIntro = () => {
           </div>
           <div className="links">
             <div className="links-inner">
-              <Link className="overpass-thin">profile</Link>
-              <Link className="overpass-thin">projects</Link>
-              <Link className="overpass-thin">contact</Link>
+              <Link>profile</Link>
+              <Link>projects</Link>
+              <Link>contact</Link>
             </div>
           </div>
         </div>
