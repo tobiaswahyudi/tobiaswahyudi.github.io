@@ -13,7 +13,7 @@ module.exports = {
         fonts: [
           {
             family: `Merriweather`,
-            variants: [`700`,`900`]
+            variants: [`400`,`700`,`900`]
           },
           {
             family: `Overpass`,

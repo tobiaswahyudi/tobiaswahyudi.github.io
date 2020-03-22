@@ -1,0 +1,42 @@
+// Font utility classes
+
+body p, .overpass, .overpass-thin {
+  font-family: "Overpass";
+  font-weight: 200;
+}
+
+.overpass-light {
+  font-family: "Overpass";
+  font-weight: 300;
+}
+
+.overpass-regular {
+  font-family: "Overpass";
+  font-weight: 400;
+}
+
+.overpass-regular-italic {
+  font-family: "Overpass";
+  font-weight: 400;
+  font-style: italic;
+}
+
+.overpass-semibold {
+  font-family: "Overpass";
+  font-weight: 600;
+}
+
+.merriweather, .merriweather-bold {
+  font-family: "Merriweather";
+  font-weight: 700;
+}
+
+.merriweather-regular {
+  font-family: "Merriweather";
+  font-weight: 400;
+}
+
+.merriweather-black {
+  font-family: "Merriweather";
+  font-weight: 900;
+}
