@@ -6,6 +6,7 @@ html {
 
 body {
   margin: 0;
+  background: $background;
 }
 
 a {
@@ -13,6 +14,20 @@ a {
   color: black;
   font-family: "Overpass";
   font-weight: 100;
+}
+
+h1 {
+  font-family: "Merriweather";
+  font-weight: 900;
+  font-size: 3rem;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Merriweather";
+  font-weight: 400;
+  margin: 0;
+  font-size: 2rem;
 }
 
 // Font utility classes

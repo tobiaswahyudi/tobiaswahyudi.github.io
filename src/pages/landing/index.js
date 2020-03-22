@@ -4,11 +4,14 @@ import { Link } from 'gatsby'
 import './index.scss'
 
 import ReadMore from './components/readMore.js'
+import WorkCard from './components/workCard.js'
 
 const LandingPage = ({ work, projects }) => {
   return (
     <div className="landing-page">
       <LandingPageIntro />
+      <Cards cards={work} title="Work Experience" />
+      <Cards cards={projects} title="Projects" />
     </div>
   )
 }
@@ -25,7 +28,7 @@ export const LandingPageIntro = () => {
                 <hr className="mid-line" />
               </div>
               <div className="mid">
-                <h1 className="merriweather-black">Tobias Wahyudi</h1>
+                <h1>Tobias Wahyudi</h1>
               </div>
               <div className="bot">
                 <hr className="mid-line" />
@@ -49,6 +52,23 @@ export const LandingPageIntro = () => {
         </div>
         <div className="paragraph-interests">
           <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>
+        </div>
+        <ReadMore />
+      </div>
+    </>
+  )
+}
+
+export const Cards = ({ cards = [], title }) => {
+  console.log(cards)
+  return (
+    <>
+      <div className="experience">
+        <h2>{title}</h2>
+        <div className="cards">
+          {
+            cards.map(edge => <WorkCard card={edge.node} />)
+          }
         </div>
         <ReadMore />
       </div>
