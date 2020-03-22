@@ -5,14 +5,13 @@ import Image from 'gatsby-image'
 import './workCard.scss'
 
 const formatDate = (date) => {
-  console.log(date)
   if (date < 0) return 'Present'
   return new Date(date).toLocaleString('en-us', { month: 'short', year: 'numeric' })
 }
 
-const WorkCard = ({ card }) => {
-
-  console.log(card)
+const WorkCard = ({
+  card = { frontmatter: { img: null } }
+}) => {
 
   return (
     <Link className="work-card">

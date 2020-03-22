@@ -60,7 +60,6 @@ export const LandingPageIntro = () => {
 }
 
 export const Cards = ({ cards = [], title }) => {
-  console.log(cards)
   return (
     <>
       <div className="experience">
