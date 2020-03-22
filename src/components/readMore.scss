@@ -1,0 +1,17 @@
+@import "../styles/main.scss";
+
+.read-more {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      font-size: 1.2rem;
+      line-height: 1rem;
+      margin: 0;
+    }
+  }
+}

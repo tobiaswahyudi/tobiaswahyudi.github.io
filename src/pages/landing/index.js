@@ -2,7 +2,8 @@ import React from 'react'
 
 import './index.scss'
 import { Link } from 'gatsby'
-import woosh from './images/woosh.png'
+
+import ReadMore from '../../components/readMore.js'
 
 const LandingPage = ({ work, projects }) => {
   return (
@@ -49,6 +50,7 @@ export const LandingPageIntro = () => {
         <div className="paragraph-interests">
           <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>
         </div>
+        <ReadMore />
       </div>
     </>
   )

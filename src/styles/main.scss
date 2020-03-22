@@ -8,6 +8,13 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  font-family: "Overpass";
+  font-weight: 100;
+}
+
 // Font utility classes
 
 body p, .overpass, .overpass-thin {
