@@ -3,10 +3,16 @@ import { Link } from 'gatsby'
 
 import './index.scss'
 
-import ReadMore from './components/readMore.js'
-import WorkCard from './components/workCard.js'
+import ReadMore from './components/readMore'
+import WorkCard from '../../templates/landing/workCard'
+import * as types from '../../shared/types'
 
-const LandingPage = ({ work, projects }) => {
+interface LandingPageProps {
+  work: types.MarkdownRemarkEdge[]
+  projects: types.MarkdownRemarkEdge[]
+}
+
+const LandingPage: React.FC<LandingPageProps> = ({ work, projects }: LandingPageProps) => {
   return (
     <div className="landing-page">
       <LandingPageIntro />
@@ -16,7 +22,7 @@ const LandingPage = ({ work, projects }) => {
   )
 }
 
-export const LandingPageIntro = () => {
+export const LandingPageIntro: React.FC = () => {
   return (
     <>
       <div className="intro">
@@ -41,9 +47,9 @@ export const LandingPageIntro = () => {
           </div>
           <div className="links">
             <div className="links-inner">
-              <Link>profile</Link>
-              <Link>projects</Link>
-              <Link>contact</Link>
+              <Link to='/'>profile</Link>
+              <Link to='/'>projects</Link>
+              <Link to='/'>contact</Link>
             </div>
           </div>
         </div>
@@ -53,13 +59,18 @@ export const LandingPageIntro = () => {
         <div className="paragraph-interests">
           <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>
         </div>
-        <ReadMore />
+        <ReadMore path='/' />
       </div>
     </>
   )
 }
 
-export const Cards = ({ cards = [], title }) => {
+interface CardsProps {
+  cards: types.MarkdownRemarkEdge[]
+  title: string
+}
+
+export const Cards: React.FC<CardsProps> = ({ cards = [], title }: CardsProps) => {
   return (
     <>
       <div className="experience">
@@ -69,7 +80,7 @@ export const Cards = ({ cards = [], title }) => {
             cards.map(edge => <WorkCard card={edge.node} />)
           }
         </div>
-        <ReadMore />
+        <ReadMore path='/' />
       </div>
     </>
   )

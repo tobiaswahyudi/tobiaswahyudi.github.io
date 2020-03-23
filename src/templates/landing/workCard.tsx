@@ -3,21 +3,23 @@ import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 import './workCard.scss'
+import * as types from '../../shared/types'
 
-const formatDate = (date) => {
-  if (date < 0) return 'Present'
+const formatDate: (date: types.DateTime) => string = (date: types.DateTime) => {
+  if (date === -1) return 'Present'
   return new Date(date).toLocaleString('en-us', { month: 'short', year: 'numeric' })
 }
 
-const WorkCard = ({
-  card = { frontmatter: { img: null } }
-}) => {
+interface WorkCardProps {
+  card: types.MarkdownRemark
+}
 
+const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
   return (
-    <Link className="work-card">
+    <Link to={card ?card.frontmatter.path: '/'} className="work-card">
       <div className="container">
         <div className="img-container">
-          {card.frontmatter.img && <Image fluid={card.frontmatter.img.childImageSharp.fluid} />}
+          <Image fluid={card.frontmatter.img.childImageSharp.fluid} />
         </div>
         <div className="card-info">
           <div className="title">

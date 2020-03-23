@@ -5,7 +5,7 @@ tags: ["react","next"]
 title: "Fluent.id"
 position: "Co-founder"
 location: "Jakarta, Indonesia"
-startDate: 2019-06-01
+startDate: "2019-06-01"
 endDate: -1
 img: './fluent.png'
 

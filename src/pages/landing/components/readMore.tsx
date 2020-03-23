@@ -3,7 +3,11 @@ import { Link } from 'gatsby'
 
 import './readMore.scss'
 
-const ReadMore = ({ path = '/' }) => {
+interface ReadMoreProps {
+  path: string
+}
+
+const ReadMore: React.FC<ReadMoreProps> = ({ path }: ReadMoreProps) => {
   return (
     <div className="read-more">
       <Link to={path}>

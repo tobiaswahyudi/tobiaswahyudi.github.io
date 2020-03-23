@@ -8,6 +8,6 @@
 exports.createPages = async ({ graphql, actions: { createPage } }, options) => {
   createPage({
     path: `${options.baseUrl}`,
-    component: require.resolve(`./src/pages/index.js`)
+    component: require.resolve(`./src/pages/index.tsx`)
   });
 }

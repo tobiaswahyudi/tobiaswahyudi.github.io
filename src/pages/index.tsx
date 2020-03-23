@@ -3,8 +3,22 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 import LandingPage from "./landing"
+import * as types from "../shared/types"
 
-const IndexPage = ({ data }) => {
+interface LandingQueryType {
+  projects: {
+    edges: types.MarkdownRemarkEdge[]
+  }
+  work: {
+    edges: types.MarkdownRemarkEdge[]
+  }
+}
+
+interface IndexPageProps {
+  data: LandingQueryType
+}
+
+const IndexPage: React.FC<IndexPageProps> = ({ data }: IndexPageProps) => {
   return (
     <>
       <SEO title="Home" />
