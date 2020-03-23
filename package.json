@@ -13,6 +13,7 @@
     "gatsby-plugin-react-helmet": "^3.2.0",
     "gatsby-plugin-sass": "^2.2.0",
     "gatsby-plugin-sharp": "^2.5.1",
+    "gatsby-plugin-typescript": "^2.3.0",
     "gatsby-remark-autolink-headers": "^2.2.0",
     "gatsby-remark-images": "^3.2.0",
     "gatsby-source-filesystem": "^2.1.56",
@@ -22,7 +23,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -32,7 +35,8 @@
     "@storybook/react": "^5.3.17",
     "babel-loader": "^8.1.0",
     "gh-pages": "^2.2.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "gatsby"

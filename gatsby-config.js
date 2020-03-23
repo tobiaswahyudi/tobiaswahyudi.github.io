@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
