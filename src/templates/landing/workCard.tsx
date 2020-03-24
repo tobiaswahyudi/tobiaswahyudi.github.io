@@ -6,7 +6,8 @@ import './workCard.scss'
 import * as types from '../../shared/types'
 
 const formatDate: (date: types.DateTime) => string = (date: types.DateTime) => {
-  if (date === -1) return 'Present'
+  if (date === types.ConstantDate.present) return 'Present'
+  if (date === types.ConstantDate.none) return ''
   return new Date(date).toLocaleString('en-us', { month: 'short', year: 'numeric' })
 }
 
@@ -15,6 +16,12 @@ interface WorkCardProps {
 }
 
 const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
+
+  const dateString = `${formatDate(card.frontmatter.startDate)}${
+    card.frontmatter.endDate === types.ConstantDate.none ? '' :
+    ` - ${formatDate(card.frontmatter.endDate)}`
+  }`
+
   return (
     <Link to={card ?card.frontmatter.path: '/'} className="work-card">
       <div className="container">
@@ -24,7 +31,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
         <div className="card-info">
           <div className="title">
             <span className="overpass-semibold">
-              {`${card.frontmatter.position}, ${card.frontmatter.title}`}
+              {`${card.frontmatter.position? `${card.frontmatter.position}, `: ''}${card.frontmatter.title}`}
             </span>
           </div>
           <hr />
@@ -33,7 +40,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
               {card.frontmatter.location}
             </span>
             <span className="time overpass-light">
-              {`${formatDate(card.frontmatter.startDate)} - ${formatDate(card.frontmatter.endDate)}`}
+              {dateString}
             </span>
           </div>
           <div className="excerpt">

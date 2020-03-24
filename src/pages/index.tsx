@@ -30,9 +30,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }: IndexPageProps) => {
 export const query = graphql`
 query{
   projects: allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/content\/projects\//"}}
     sort: { order: DESC, fields: [frontmatter___priority, frontmatter___date] }
     limit: 3,
-    filter: {fileAbsolutePath: {regex: "/\/projects\//"}}
   ) {
     edges {
       node {
@@ -41,9 +41,9 @@ query{
     }
   }
   work: allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/content\/work\//"}}
     sort: { order: DESC, fields: [frontmatter___priority, frontmatter___date] }
     limit: 3,
-    filter: {fileAbsolutePath: {regex: "/\/work\//"}}
   ) {
     edges {
       node {

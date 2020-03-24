@@ -1,6 +1,11 @@
 import { FluidObject } from "gatsby-image";
 
-export type DateTime = string | -1
+export enum ConstantDate {
+  none = 0,
+  present = -1
+}
+
+export type DateTime = string | ConstantDate.none | ConstantDate.present
 
 export interface SharpImage {
   childImageSharp: {
