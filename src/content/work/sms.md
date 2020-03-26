@@ -6,7 +6,8 @@ title: "Secret Mission Software"
 position: "Software Developer Intern"
 location: "Toronto, Ontario"
 startDate: 2020-01-06
-endDate: -1
+endDate: 2000-08-08
+endDateString: "current"
 img: './sms.png'
 
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis."

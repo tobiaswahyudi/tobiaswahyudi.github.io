@@ -66,6 +66,7 @@ fragment allFields on MarkdownRemark {
     location
     startDate
     endDate
+    endDateString
 
     excerpt
     img {

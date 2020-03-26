@@ -5,25 +5,30 @@ import Image from 'gatsby-image'
 import './workCard.scss'
 import * as types from '../../shared/types'
 
-const formatDate: (date: types.DateTime) => string = (date: types.DateTime) => {
-  if (date === types.ConstantDate.present) return 'Present'
-  if (date === types.ConstantDate.none) return ''
-  return new Date(date).toLocaleString('en-us', { month: 'short', year: 'numeric' })
-}
+const formatDate: (startDate: Date, endDate: Date, endDateString: types.EndDate) => string =
+  (startDate: Date, endDate: Date, endDateString: types.EndDate) => {
+    const startFormatted = new Date(startDate).toLocaleString('en-us', { month: 'short', year: 'numeric' })
+
+    let returnString = startFormatted
+
+    if (endDateString === types.EndDate.Current) {
+      returnString += " - Present"
+    }
+    if (endDateString === types.EndDate.Show) {
+      returnString += " - "
+      returnString += new Date(endDate).toLocaleString('en-us', { month: 'short', year: 'numeric' })
+    }
+
+    return returnString
+  }
 
 interface WorkCardProps {
   card: types.MarkdownRemark
 }
 
 const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
-
-  const dateString = `${formatDate(card.frontmatter.startDate)}${
-    card.frontmatter.endDate === types.ConstantDate.none ? '' :
-    ` - ${formatDate(card.frontmatter.endDate)}`
-  }`
-
   return (
-    <Link to={card ?card.frontmatter.path: '/'} className="work-card">
+    <Link to={card ? card.frontmatter.path : '/'} className="work-card">
       <div className="container">
         <div className="img-container">
           <Image fluid={card.frontmatter.img.childImageSharp.fluid} />
@@ -31,7 +36,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
         <div className="card-info">
           <div className="title">
             <span className="overpass-semibold">
-              {`${card.frontmatter.position? `${card.frontmatter.position}, `: ''}${card.frontmatter.title}`}
+              {`${card.frontmatter.position ? `${card.frontmatter.position}, ` : ''}${card.frontmatter.title}`}
             </span>
           </div>
           <hr />
@@ -40,7 +45,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
               {card.frontmatter.location}
             </span>
             <span className="time overpass-light">
-              {dateString}
+              {formatDate(card.frontmatter.startDate, card.frontmatter.endDate, card.frontmatter.endDateString)}
             </span>
           </div>
           <div className="excerpt">

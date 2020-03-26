@@ -1,11 +1,10 @@
 import { FluidObject } from "gatsby-image";
 
-export enum ConstantDate {
-  none = 0,
-  present = -1
+export enum EndDate {
+  None = "none",
+  Current = "current",
+  Show = ""
 }
-
-export type DateTime = string | ConstantDate.none | ConstantDate.present
 
 export interface SharpImage {
   childImageSharp: {
@@ -20,8 +19,9 @@ export interface FrontMatter {
   title: string
   position: string
   location: string
-  startDate: DateTime
-  endDate: DateTime
+  startDate: Date
+  endDate: Date
+  endDateString: EndDate
   excerpt: string
   img: SharpImage
   priority: Number
