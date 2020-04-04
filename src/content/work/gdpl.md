@@ -13,5 +13,7 @@ img: './gdpl.png'
 excerpt: "I used Knowledge Graph-augmented recommender systems to implement an impressive content-based recommender. Then, I researched several deployment options for Knowledge Graphs, including AWS Neptune."
 
 priority: 0
+
+cardImageBackground: "#21A2D9"
 ---
 ooo-weee!

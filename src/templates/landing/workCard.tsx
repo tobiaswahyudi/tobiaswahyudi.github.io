@@ -29,33 +29,37 @@ interface WorkCardProps {
 const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
   return (
     <Link to={card ? card.frontmatter.path : '/'} className="work-card">
-      <div className="container">
+      <div className="container" style={
+        card.frontmatter.cardImageBackground ?
+          { backgroundColor: card.frontmatter.cardImageBackground } :
+          {}
+      }>
         <div className="img-container">
-          <Image fluid={card.frontmatter.img.childImageSharp.fluid} />
+        <Image fluid={card.frontmatter.img.childImageSharp.fluid} />
+      </div>
+      <div className="card-info">
+        <div className="title">
+          <span className="overpass-semibold">
+            {`${card.frontmatter.position ? `${card.frontmatter.position}, ` : ''}${card.frontmatter.title}`}
+          </span>
         </div>
-        <div className="card-info">
-          <div className="title">
-            <span className="overpass-semibold">
-              {`${card.frontmatter.position ? `${card.frontmatter.position}, ` : ''}${card.frontmatter.title}`}
-            </span>
-          </div>
-          <hr />
-          <div className="time-place">
-            <span className="place overpass-regular-italic">
-              {card.frontmatter.location}
-            </span>
-            <span className="time overpass-light">
-              {formatDate(card.frontmatter.startDate, card.frontmatter.endDate, card.frontmatter.endDateString)}
-            </span>
-          </div>
-          <div className="excerpt">
-            <p className="overpass-thin">
-              {card.frontmatter.excerpt}
-            </p>
-          </div>
+        <hr />
+        <div className="time-place">
+          <span className="place overpass-regular-italic">
+            {card.frontmatter.location}
+          </span>
+          <span className="time overpass-light">
+            {formatDate(card.frontmatter.startDate, card.frontmatter.endDate, card.frontmatter.endDateString)}
+          </span>
+        </div>
+        <div className="excerpt">
+          <p className="overpass-thin">
+            {card.frontmatter.excerpt}
+          </p>
         </div>
       </div>
-    </Link>
+      </div>
+    </Link >
   )
 }
 

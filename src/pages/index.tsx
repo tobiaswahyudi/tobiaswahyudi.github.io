@@ -89,6 +89,8 @@ fragment allFields on MarkdownRemark {
     }
 
     priority
+
+    cardImageBackground
   }
 }
 `
