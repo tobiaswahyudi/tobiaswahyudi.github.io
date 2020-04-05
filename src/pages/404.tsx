@@ -15,8 +15,8 @@ const NotFoundPage = () => {
         }}
       >
         <SEO title="404: Not found" />
-        <h1>NOT FOUND</h1>
-        <p>You just hit a route that doesn&#39;t exist :( click <Link to="/">here</Link> to go to the homepage.</p>
+        <h1>Page Not Found</h1>
+        <p>You just hit a route that doesn&#39;t exist :( click <Link to="/" style={{color: '#0a50ff'}} className="overpass-semibold">here</Link> to go to the homepage.</p>
       </div>
     </>
   )
