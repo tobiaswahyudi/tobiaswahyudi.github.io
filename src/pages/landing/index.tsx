@@ -8,6 +8,7 @@ import './index.scss'
 import ReadMore from './components/readMore'
 import WorkCard from '../../templates/landing/workCard'
 import * as types from '../../shared/types'
+import Footer from '../../shared/components/footer'
 
 interface LandingPageProps {
   work: types.MarkdownRemarkEdge[]
@@ -21,6 +22,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ work, projects }: LandingPage
       <Cards cards={work} title="Work Experience" />
       <Cards cards={projects} title="Projects" />
       <ContactForm onSubmit={console.log} />
+      <Footer />
     </div>
   )
 }
