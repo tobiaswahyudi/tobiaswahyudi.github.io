@@ -54,7 +54,7 @@ export const LandingPageIntro: React.FC = () => {
             <div className="links-inner">
               <Link to='/'>profile</Link>
               <Link to='/'>projects</Link>
-              <Link to='/'>contact</Link>
+              <Link to='/#contact'>contact</Link>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <>
       <div className="contact">
-        <h2>Contact Me</h2>
+        <h2 id="contact">Contact Me</h2>
         <div className="contact-form">
           <Formik
             initialValues={{ name: "", email: "", message: "" }}
