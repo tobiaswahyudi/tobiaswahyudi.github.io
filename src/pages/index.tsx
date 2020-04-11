@@ -31,7 +31,7 @@ export const query = graphql`
 query{
   projects: allMarkdownRemark(
     filter: {fileAbsolutePath: {regex: "/content\/projects\//"}}
-    sort: { order: DESC, fields: [frontmatter___priority, frontmatter___date] }
+    sort: { order: [DESC, DESC], fields: [frontmatter___priority, frontmatter___startDate] }
     limit: 3,
   ) {
     edges {
@@ -42,7 +42,7 @@ query{
   }
   work: allMarkdownRemark(
     filter: {fileAbsolutePath: {regex: "/content\/work\//"}}
-    sort: { order: DESC, fields: [frontmatter___priority, frontmatter___date] }
+    sort: { order: [DESC, DESC], fields: [frontmatter___priority, frontmatter___startDate] }
     limit: 3,
   ) {
     edges {
