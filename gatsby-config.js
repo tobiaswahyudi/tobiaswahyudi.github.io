@@ -9,6 +9,14 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-typescript`,
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.svg/
+        }
+      }
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
