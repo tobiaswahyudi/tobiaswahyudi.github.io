@@ -73,3 +73,9 @@ body p, .overpass, .overpass-thin {
   font-family: "Merriweather";
   font-weight: 900;
 }
+
+// universal utility classes
+
+.disabled {
+  filter: brightness(0.95) saturate(0.8);
+}
