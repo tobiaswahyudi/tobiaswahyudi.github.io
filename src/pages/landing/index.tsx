@@ -1,15 +1,12 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import * as yup from 'yup'
-import { Formik, FormikProps, ErrorMessage, FormikHelpers } from 'formik'
-import axios from 'axios'
 
 import './index.scss'
 
-import ReadMore from './components/readMore'
-import WorkCard from '../../templates/landing/workCard'
 import * as types from '../../shared/types'
 import Footer from '../../shared/components/footer'
+import LandingPageIntro from './components/intro'
+import Cards from './components/cards'
+import ContactForm from './components/contactForm'
 
 interface LandingPageProps {
   work: types.MarkdownRemarkEdge[]
@@ -25,169 +22,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ work, projects }: LandingPage
       <ContactForm />
       <Footer />
     </div>
-  )
-}
-
-export const LandingPageIntro: React.FC = () => {
-  return (
-    <>
-      <div className="intro">
-        <div className="head">
-          <div className="content">
-            <div className="title">
-              <div className="top">
-                <span className="overpass-light">Hello! I am</span>
-                <hr className="mid-line" />
-              </div>
-              <div className="mid">
-                <h1>Tobias Wahyudi</h1>
-              </div>
-              <div className="bot">
-                <hr className="mid-line" />
-                <span className="overpass-light">Software Engineer Wizard-in-Training</span>
-              </div>
-            </div>
-            <div className="paragraph-intro">
-              <p>Exploring the arts of front-end, back-end, and machine learning. Collecting skills and stories, one adventure at a time.</p>
-            </div>
-          </div>
-          <div className="links">
-            <div className="links-inner">
-              <Link to='/'>profile</Link>
-              <Link to='/'>projects</Link>
-              <Link to='/#contact'>contact</Link>
-            </div>
-          </div>
-        </div>
-        <div className="paragraph-about">
-          <p>I’m a second-year CS student at the University of Waterloo. I'm currently exploring front-end and back-end software development, centered around React, Django, and GraphQL.</p>
-        </div>
-        <div className="paragraph-interests">
-          <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>
-        </div>
-        <ReadMore path='/' />
-      </div>
-    </>
-  )
-}
-
-interface CardsProps {
-  cards: types.MarkdownRemarkEdge[]
-  title: string
-}
-
-export const Cards: React.FC<CardsProps> = ({ cards = [], title }: CardsProps) => {
-  return (
-    <>
-      <div className="experience">
-        <h2>{title}</h2>
-        <div className="cards">
-          {
-            cards.map(edge => <WorkCard card={edge.node} />)
-          }
-        </div>
-        <ReadMore path='/' />
-      </div>
-    </>
-  )
-}
-
-export interface FormFields {
-  name: string
-  email: string
-  message: string
-}
-
-export const ContactForm: React.FC = () => {
-
-  const validationSchema = yup.object().shape({
-    name: yup.string().required("Please provide your name."),
-    email: yup.string().email("Please provide a valid email.").required("Please provide your email."),
-    message: yup.string().required("Please leave a message.")
-  })
-
-  const handleSubmit = async (values: FormFields, actions: FormikHelpers<FormFields>) => {
-    actions.setSubmitting(true)
-    await axios.post("https://formspree.io/xzbajaba", values)
-    await actions.resetForm()
-    actions.setSubmitting(false)
-  }
-
-  return (
-    <>
-      <div className="contact">
-        <h2 id="contact">Contact Me</h2>
-        <div className="contact-form">
-          <Formik
-            initialValues={{ name: "", email: "", message: "" }}
-            validationSchema={validationSchema}
-            validateOnBlur={false}
-            validateOnChange={false}
-            validateOnMount={false}
-            onSubmit={handleSubmit}
-            enableReinitialize={true}
-          >
-            {(formik: FormikProps<FormFields>) => {
-
-              return (
-                <form onSubmit={formik.handleSubmit}>
-                  <div id="top">
-                    <div className="field-container">
-                      <input
-                        id="name"
-                        className={`overpass-light ${formik.errors.name ? 'has-errors' : ''} ${formik.isSubmitting ? 'disabled' : ''}`}
-                        placeholder="Name and/or company"
-                        name="name"
-                        onChange={formik.handleChange}
-                        disabled={formik.isSubmitting}
-                        value={formik.values.name}
-                      />
-                      <ErrorMessage name="name">{msg => <div className="form-error overpass-light">{msg}</div>}</ErrorMessage>
-                    </div>
-                    <div className="field-container">
-                      <input
-                        className={`overpass-light ${formik.errors.email ? 'has-errors' : ''} ${formik.isSubmitting ? 'disabled' : ''}`}
-                        placeholder="Email"
-                        name="email"
-                        type="email"
-                        onChange={formik.handleChange}
-                        disabled={formik.isSubmitting}
-                        value={formik.values.email}
-                      />
-                      <ErrorMessage name="email">{msg => <div className="form-error overpass-light">{msg}</div>}</ErrorMessage>
-                    </div>
-                  </div>
-                  <div id="middle">
-                    <textarea
-                      className={`overpass-light
-                        ${formik.errors.message ? 'has-errors' : ''}
-                        ${formik.isSubmitting ? 'disabled' : ''}
-                      `}
-                      placeholder="Message"
-                      name="message"
-                      onChange={formik.handleChange}
-                      disabled={formik.isSubmitting}
-                      value={formik.values.message}
-                    />
-                    <ErrorMessage name="message">{msg => <div className="form-error overpass-light">{msg}</div>}</ErrorMessage>
-                  </div>
-                  <div id="bottom">
-                    <input
-                      className={`overpass-regular 
-                        ${formik.isSubmitting ? 'disabled' : ''}`}
-                      id="send"
-                      type="submit"
-                      value="Send!"
-                      disabled={formik.isSubmitting} />
-                  </div>
-                </form>
-              )
-            }
-            }
-          </Formik>
-        </div>
-      </div >
-    </>
   )
 }
 
