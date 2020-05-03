@@ -26,6 +26,7 @@ export interface FrontMatter {
   img: SharpImage
   priority: Number
   cardImageBackground?: string
+  backgroundHue?: string
 }
 
 export interface MarkdownRemark {
