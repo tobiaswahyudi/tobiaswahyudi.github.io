@@ -13,5 +13,6 @@ img: './fluent.png'
 excerpt: "Fluent is an online platform which allows its users to practice English via free anonymous peer-to-peer voice calls."
 
 priority: 0
+backgroundHue: 22
 ---
 fluent
