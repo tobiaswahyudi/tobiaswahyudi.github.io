@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 html {
-  font-size: 24px;
+  font-size: 20px;
   scroll-behavior: smooth;
   @media screen and (max-width: 786px) {
     font-size: 16px;
@@ -41,6 +41,12 @@ body, p, .overpass, .overpass-thin {
   font-weight: 100;
 }
 
+em, .overpass-thin-italic {
+  font-family: "Overpass";
+  font-weight: 100;
+  font-style: italic;
+}
+
 .overpass-light {
   font-family: "Overpass";
   font-weight: 300;
@@ -60,6 +66,11 @@ body, p, .overpass, .overpass-thin {
 .overpass-semibold {
   font-family: "Overpass";
   font-weight: 600;
+}
+
+.overpass-extrabold {
+  font-family: "Overpass";
+  font-weight: 800;
 }
 
 .merriweather, .merriweather-bold {
