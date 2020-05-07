@@ -1,0 +1,72 @@
+@import "../../../styles/main.scss";
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    padding: 0 3.5rem 1rem;
+    line-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    &.left {
+      align-items: flex-start;
+    }
+    
+    .title {
+      font-size: 2rem;
+      text-shadow: -2px 3px 3px rgba(0, 0, 0, 0.25);
+      color: white;
+    }
+
+    .date {
+      color: $darkergray;
+    }
+  }
+
+  .content {
+    display: flex;
+    padding-bottom: 1rem;
+    flex-direction: row;
+
+    &.left {
+      flex-direction: row-reverse;
+    }
+
+    .text {
+      flex: 5.5 5.5;
+      padding: 2.5rem 2rem 2.5rem 2.5rem;
+      background: linear-gradient($background, $background-gradient);
+      box-shadow: 4px 0px 12px rgba(0, 0, 0, 0.12);
+      line-height: 1.8;
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        text-indent: 1.5rem;
+      }
+    }
+
+    .figure {
+      flex: 4.5 4.5;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      .img {
+        position: sticky;
+        top: 1rem;
+        bottom: 2rem;
+      }
+    }
+  }
+}
