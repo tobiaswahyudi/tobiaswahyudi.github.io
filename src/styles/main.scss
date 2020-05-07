@@ -3,6 +3,9 @@
 html {
   font-size: 24px;
   scroll-behavior: smooth;
+  @media screen and (max-width: 786px) {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -33,7 +36,7 @@ h2 {
 
 // Font utility classes
 
-body p, .overpass, .overpass-thin {
+body, p, .overpass, .overpass-thin {
   font-family: "Overpass";
   font-weight: 100;
 }
