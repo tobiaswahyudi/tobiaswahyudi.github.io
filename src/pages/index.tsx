@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
-import LandingPage from "./landing"
+import LandingPage from "../templates/landing/index"
 import * as types from "../shared/types"
 
 interface LandingQueryType {

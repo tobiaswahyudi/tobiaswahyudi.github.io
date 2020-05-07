@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../index.scss'
 
-import WorkCard from '../../../templates/landing/workCard'
+import WorkCard from './workCard'
 import ReadMore from './readMore'
 
 import * as types from '../../../shared/types'

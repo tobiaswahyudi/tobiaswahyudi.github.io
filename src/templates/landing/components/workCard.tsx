@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 import './workCard.scss'
-import * as types from '../../shared/types'
+import * as types from '../../../shared/types'
 
 const formatDate: (startDate: Date, endDate: Date, endDateString: types.EndDate) => string =
   (startDate: Date, endDate: Date, endDateString: types.EndDate) => {
