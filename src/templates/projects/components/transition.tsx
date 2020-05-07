@@ -6,6 +6,8 @@ interface ProjectTransitionProps {
   leftTab: boolean
 }
 
+import './transition.scss'
+
 export const ProjectTransition: React.FC<ProjectTransitionProps> = ({
   topColor = "#FCFCFA",
   bottomColor,

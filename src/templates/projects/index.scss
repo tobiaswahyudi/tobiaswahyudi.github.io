@@ -28,13 +28,3 @@
     }
   }
 }
-
-.project-transition {
-  display: flex;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px -10px 15px -8px inset;
-  overflow: hidden;
-  padding-top: 25px;
-  svg {
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
-  }
-}
