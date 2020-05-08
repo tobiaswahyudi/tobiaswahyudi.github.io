@@ -23,7 +23,6 @@ const ProjectDiagram: React.FC<ProjectDiagramProps> = ({ project }: ProjectDiagr
   }, [ref])
 
   if (project.frontmatter.mobileImg) {
-    console.log({title: project.frontmatter.title, type: 'mobile'})
     return (
       <div className="mobile" style={{ width: sizes.width, height: sizes.height }}>
         <div className="transformer">
@@ -37,7 +36,6 @@ const ProjectDiagram: React.FC<ProjectDiagramProps> = ({ project }: ProjectDiagr
   }
 
   if (project.frontmatter.previewImg) {
-    console.log({title: project.frontmatter.title, type: 'preview'})
     return (
       <div className="preview">
         <Image fluid={project.frontmatter.previewImg.childImageSharp.fluid} />

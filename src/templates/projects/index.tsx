@@ -28,7 +28,6 @@ const ProjectPageInner: React.FC<ProjectPageProps> = ({ data: { projects } }: Pr
       />
       {
         projects.edges.map(({ node: project }, idx, array) => {
-          console.log(!(idx % 2))
           return (
             <React.Fragment key={idx}>
               <ProjectCard
