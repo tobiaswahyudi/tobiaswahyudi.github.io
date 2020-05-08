@@ -1,4 +1,4 @@
-import { FluidObject } from "gatsby-image";
+import { FluidObject, FixedObject } from "gatsby-image";
 
 export enum EndDate {
   None = "none",
@@ -7,8 +7,10 @@ export enum EndDate {
 }
 
 export interface SharpImage {
+  publicURL: string
   childImageSharp: {
     fluid: FluidObject
+    fixed: FixedObject
   }
 }
 

@@ -1,5 +1,5 @@
-import React, { useRef, useLayoutEffect, useState } from 'react'
-import Image from 'gatsby-image'
+import React from 'react'
+import Image from '../../../shared/components/Image'
 
 import './projectDiagram.scss'
 
@@ -13,22 +13,14 @@ interface ProjectDiagramProps {
 
 const ProjectDiagram: React.FC<ProjectDiagramProps> = ({ project }: ProjectDiagramProps) => {
 
-  const [sizes, setSizes] = useState({ height: 0, width: 0 })
-
-  const ref = useRef(null)
-
-  useLayoutEffect(() => {
-    if (ref && ref.current)
-      setSizes(ref.current.getBoundingClientRect())
-  }, [ref])
-
   if (project.frontmatter.mobileImg) {
+    console.log(project.frontmatter.mobileImg)
     return (
-      <div className="mobile" style={{ width: sizes.width, height: sizes.height }}>
+      <div className="mobile">
         <div className="transformer">
           <IphoneFrame className="frame" />
-          <div className="screen" ref={ref}>
-            <Image fluid={project.frontmatter.mobileImg.childImageSharp.fluid} />
+          <div className="screen">
+            <Image image={project.frontmatter.mobileImg} />
           </div>
         </div>
       </div>
@@ -38,7 +30,7 @@ const ProjectDiagram: React.FC<ProjectDiagramProps> = ({ project }: ProjectDiagr
   if (project.frontmatter.previewImg) {
     return (
       <div className="preview">
-        <Image fluid={project.frontmatter.previewImg.childImageSharp.fluid} />
+        <Image image={project.frontmatter.previewImg} />
       </div>
     )
   }

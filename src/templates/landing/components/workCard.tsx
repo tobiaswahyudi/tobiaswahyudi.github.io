@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Image from 'gatsby-image'
+import Image from '../../../shared/components/Image'
 
 import './workCard.scss'
 import * as types from '../../../shared/types'
@@ -35,7 +35,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
           {}
       }>
         <div className="img-container">
-        <Image fluid={card.frontmatter.img.childImageSharp.fluid} />
+        <Image image={card.frontmatter.img} />
       </div>
       <div className="card-info">
         <div className="title">

@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 export const ImageSharpFragment = graphql`
 fragment ImageSharpFields on File {
+  publicURL
   childImageSharp {
     fluid {  
       aspectRatio
