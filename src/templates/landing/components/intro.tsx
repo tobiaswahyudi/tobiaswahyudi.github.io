@@ -42,7 +42,7 @@ export const LandingPageIntro: React.FC = () => {
         <div className="paragraph-interests">
           <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>
         </div>
-        <ReadMore path='/' />
+        {/* <ReadMore path='/' /> */}
       </div>
     </>
   )

@@ -10,9 +10,10 @@ import * as types from '../../../shared/types'
 interface CardsProps {
   cards: types.MarkdownRemarkEdge[]
   title: string
+  link?: string
 }
 
-export const Cards: React.FC<CardsProps> = ({ cards = [], title }: CardsProps) => {
+export const Cards: React.FC<CardsProps> = ({ cards, title, link }: CardsProps) => {
   return (
     <>
       <div className="experience">
@@ -22,7 +23,7 @@ export const Cards: React.FC<CardsProps> = ({ cards = [], title }: CardsProps) =
             cards.map(edge => <WorkCard card={edge.node} />)
           }
         </div>
-        <ReadMore path='/' />
+        {link && <ReadMore path={link} />}
       </div>
     </>
   )

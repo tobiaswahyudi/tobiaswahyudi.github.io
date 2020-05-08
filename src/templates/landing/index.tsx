@@ -17,8 +17,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ work, projects }: LandingPage
   return (
     <div className="landing-page">
       <LandingPageIntro />
-      <Cards cards={work} title="Work Experience" />
-      <Cards cards={projects} title="Projects" />
+      <Cards cards={work} title="Work Experience"/>
+      <Cards cards={projects} title="Projects" link="/projects"/>
       <ContactForm />
       <Footer />
     </div>
