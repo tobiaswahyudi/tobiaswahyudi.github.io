@@ -13,7 +13,7 @@ previewImg: './vm_preview.png'
 
 excerpt: "vm is a clone of vim created for the CS246E final project. It was implemented in C++ using Object-Oriented Programming techniques. The project received a final mark of 98%."
 
-priority: 1
+priority: 0
 backgroundHue: 212
 ---
 #Lorem ipsum
