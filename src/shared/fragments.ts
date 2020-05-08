@@ -31,6 +31,7 @@ fragment MarkdownRemarkFields on MarkdownRemarkConnection {
       frontmatter {
         date
         path
+        slug
         tags
         
         title

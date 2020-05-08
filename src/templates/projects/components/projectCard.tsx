@@ -20,6 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div
       className="project-card"
       style={{ backgroundColor: hueToTopColor(project.frontmatter.backgroundHue) }}
+      id={project.frontmatter.slug}
     >
       <div className={`header overpass-extrabold ${leftTab ? "left" : ""}`}>
         <span className="title">

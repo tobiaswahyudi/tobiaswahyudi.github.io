@@ -1,6 +1,7 @@
 ---
 date: 2020-03-20T21:11:34.220Z
 path: "/projects/#vm"
+slug: "vm"
 tags: ["c++","oop"]
 title: "vm"
 position: ""
