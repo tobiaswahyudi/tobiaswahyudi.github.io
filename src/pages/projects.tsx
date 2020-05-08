@@ -3,6 +3,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import ProjectPageInner, { ProjectPageProps } from '../templates/projects'
 import { MarkdownRemarkFragment } from '../shared/fragments'
+import SEO from '../components/seo'
 
 export const query = graphql`
 query{
@@ -19,7 +20,10 @@ query{
 const ProjectPage: React.FC<ProjectPageProps> = ({ data }: ProjectPageProps) => {
 
   return (
-    <ProjectPageInner data={data} />
+    <>
+      <SEO title="Projects" />
+      <ProjectPageInner data={data} />
+    </>
   )
 }
 
