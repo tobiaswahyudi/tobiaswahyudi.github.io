@@ -12,8 +12,20 @@
 
   padding: 10vh 0 30vh;
 
+  @media screen and (max-width: 786px) {
+    padding: 0 0 2rem;
+  }
+
   .transformer {
     transform: skew(-32deg,12deg) scale(0.4);
+
+    @media screen and (max-width: 1024px) {
+      transform: skew(-32deg,12deg) scale(0.3);
+    }
+
+    @media screen and (max-width: 768px) {
+      transform: skew(-32deg,12deg) scale(0.2);
+    }
   }
   .frame {
     position: absolute;
@@ -36,7 +48,13 @@
 
 .preview {
   width: 360px;
+  max-width: 32vw;
   height: auto;
 
   padding: 10vh 0 30vh;
+  @media screen and (max-width: 786px) {
+    padding: 0 0 2rem;
+    max-width: unset;
+    width: 240px;
+  }
 }
