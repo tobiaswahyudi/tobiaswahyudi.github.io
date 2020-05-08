@@ -4,7 +4,7 @@ import './projectCard.scss'
 
 import * as types from '../../../shared/types'
 import { formatDate } from './utils'
-import { hueToTopColor } from '..'
+import { hueToTopColor, hueToBottomColor } from '..'
 import ProjectDiagram from './projectDiagram'
 
 export interface ProjectCardProps {
@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       className="project-card"
-      style={{ backgroundColor: hueToTopColor(project.frontmatter.backgroundHue) }}
+      style={{ background: `linear-gradient(180deg, ${hueToTopColor(project.frontmatter.backgroundHue)}, ${hueToBottomColor(project.frontmatter.backgroundHue)})` }}
       id={project.frontmatter.slug}
     >
       <div className={`header overpass-extrabold ${leftTab ? "left" : ""}`}>

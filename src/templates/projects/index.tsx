@@ -16,6 +16,7 @@ export interface ProjectPageProps {
 }
 
 export const hueToTopColor = (hue: string): string => `hsla(${hue},100%,79%,1)`
+export const hueToBottomColor = (hue: string): string => `hsla(${hue},57%,64%,1)`
 
 const ProjectPageInner: React.FC<ProjectPageProps> = ({ data: { projects } }: ProjectPageProps) => {
   return (
@@ -36,7 +37,7 @@ const ProjectPageInner: React.FC<ProjectPageProps> = ({ data: { projects } }: Pr
               />
               {idx !== array.length - 1 &&
                 <ProjectTransition
-                  topColor={hueToTopColor(project.frontmatter.backgroundHue)}
+                  topColor={hueToBottomColor(project.frontmatter.backgroundHue)}
                   bottomColor={hueToTopColor(array[idx + 1].node.frontmatter.backgroundHue)}
                   leftTab={!(idx % 2)}
                 />
