@@ -17,11 +17,18 @@ excerpt: "vm is a clone of vim created for the CS246E final project. It was impl
 priority: 0
 backgroundHue: 212
 ---
-#Lorem ipsum
-dolor sit amet, consectetur adipiscing elit. Donec dictum, nibh sed sollicitudin mattis, mauris mauris tincidunt tortor, eget venenatis urna erat tincidunt felis. Aliquam eu eros at massa imperdiet hendrerit. Duis pellentesque sed mi sed pretium. Mauris cursus enim non tellus cursus efficitur. Sed aliquet elementum ex, vel bibendum erat facilisis malesuada. Sed tincidunt fringilla dictum. Vivamus porttitor faucibus lectus faucibus cursus. Donec aliquet libero eget velit tempus finibus. Maecenas vel lectus et urna elementum sodales vel at turpis. Nunc quis magna volutpat, mattis justo in, egestas nunc. Integer at molestie massa. In vitae aliquet est, a congue lorem. Vestibulum vel erat luctus, viverra sapien eget, accumsan eros.
+#What is vm?
+`vm` is a clone of `vim`, created for the final project of the CS246E course. It was implemented in C++ using the Object-Oriented Programming techniques and principles introduced throughout the course.
 
-##Class aptent
-taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras purus neque, vulputate a libero eu, finibus aliquet nunc. Curabitur vel magna vitae erat mattis rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam faucibus augue id luctus ultrices. Duis cursus nunc id urna congue euismod. Mauris euismod eros a erat vehicula finibus. Aenean dignissim, tellus id bibendum fringilla, orci felis efficitur lorem, sed cursus felis justo nec sapien. Etiam sit amet pretium magna. Quisque eu lectus bibendum, sodales augue sit amet, elementum tellus. Proin bibendum dui imperdiet elit aliquet, vel cursus justo suscipit. Aliquam cursus augue neque, quis scelerisque quam hendrerit sed.
+I took the course on its third offering, in the fall of 2019. Taught by Brad Lushman, this *"Object-Oriented Programming"* course actually touches on a wide landscape of topics such as design patterns, exception safety, and template metaprogramming.
 
-##Vestibulum iaculis
-ac turpis non dictum. Nunc rutrum lorem ac libero varius congue in eu lorem.
+For the final project, we were provided with a specification of a `vim` clone. I paired up with my friend [Nguyen Pham](https://github.com/natsukagami) on this assignment. We implemented `vim`'s text editing functionality: single-letter commands (`a`, `i`, etc), colon-commands (`:q`, `:r`, etc), multipliers(`4dw`), and macros.
+
+The project received a final mark of 98%.
+
+
+##Remarks about this project
+- This course strongly emphasized testing your code. There were penalties for submissions that did not compile. Nguyen set up a GitHub test CI for our project early on and it was a massive lifesaver for us.
+- We learned a bit about Doxygen because we reverse-engineering the UML from the C header files.
+- Because both of us were previously web developers, we modeled our MVC design after Redux's unidirectional data flow.
+- We were asked to use `ncurses` - a `C` library to interface with the terminal. It was really interesting. I learned a lot of things about it that I will probably never use again.
