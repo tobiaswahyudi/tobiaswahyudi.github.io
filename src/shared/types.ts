@@ -24,6 +24,10 @@ export interface FrontMatter {
   endDateString: EndDate
   excerpt: string
   img: SharpImage
+
+  previewImg?: SharpImage
+  mobileImg?: SharpImage
+
   priority: Number
   cardImageBackground?: string
   backgroundHue?: string
