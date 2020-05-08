@@ -14,7 +14,6 @@ interface ProjectDiagramProps {
 const ProjectDiagram: React.FC<ProjectDiagramProps> = ({ project }: ProjectDiagramProps) => {
 
   if (project.frontmatter.mobileImg) {
-    console.log(project.frontmatter.mobileImg)
     return (
       <div className="mobile">
         <div className="transformer">
