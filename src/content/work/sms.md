@@ -10,7 +10,7 @@ endDate: 2000-08-08
 endDateString: "current"
 img: './sms.png'
 
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis."
+excerpt: "Collaborated with a team of 5 developers and a Project Manager to deliver a responsive web-app using Typescript, React, Apollo, Graphene, and Django. Used Heroku and GitHub for a streamlined CI pipeline."
 
 priority: 0
 ---
