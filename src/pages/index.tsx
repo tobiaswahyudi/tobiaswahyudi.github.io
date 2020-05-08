@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import LandingPage from "../templates/landing/index"
 import * as types from "../shared/types"
+import { MarkdownRemarkFragment } from '../shared/fragments'
 
 interface LandingQueryType {
   projects: {
@@ -34,63 +35,14 @@ query{
     sort: { order: [DESC, DESC], fields: [frontmatter___priority, frontmatter___startDate] }
     limit: 3,
   ) {
-    edges {
-      node {
-        ...allFields
-      }
-    }
+    ...MarkdownRemarkFields
   }
   work: allMarkdownRemark(
     filter: {fileAbsolutePath: {regex: "/content\/work\//"}}
     sort: { order: [DESC, DESC], fields: [frontmatter___priority, frontmatter___startDate] }
     limit: 3,
   ) {
-    edges {
-      node {
-        ...allFields
-      }
-    }
-  }
-}
-
-fragment allFields on MarkdownRemark {
-  html
-  id
-  frontmatter {
-    date
-    path
-    tags
-    
-    title
-    position
-    location
-    startDate
-    endDate
-    endDateString
-
-    excerpt
-    img {
-      childImageSharp {
-        fluid {  
-          aspectRatio
-          base64
-          originalImg
-          originalName
-          presentationHeight
-          presentationWidth
-          sizes
-          src
-          srcSet
-          srcSetWebp
-          srcWebp
-          tracedSVG
-        }
-      }
-    }
-
-    priority
-
-    cardImageBackground
+    ...MarkdownRemarkFields
   }
 }
 `
