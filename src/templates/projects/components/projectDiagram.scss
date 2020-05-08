@@ -1,0 +1,42 @@
+@import "../../../styles/main.scss";
+
+.mobile {
+  position: relative;
+  isolation: isolate;
+
+  width: 360px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10vh 0 30vh;
+
+  .transformer {
+    transform: skew(-32deg,12deg) scale(0.4);
+  }
+  .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 424px;
+    height: auto;
+  }
+  .screen {
+    position: relative;
+    // these margins are fixed from the iphone frame img
+    top: 10px;
+    left: 12px;
+    width: 360px;
+    height: auto;
+    z-index: 0;
+  }
+}
+
+.preview {
+  width: 360px;
+  height: auto;
+
+  padding: 10vh 0 30vh;
+}
