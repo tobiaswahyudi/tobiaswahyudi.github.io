@@ -30,10 +30,7 @@ We found that the average Indonesian IELTS speaking  score is 2 points lower tha
 By allowing users to simply converse with each other, we want a more natural proficiency to develop - unlike a *“learned”* proficiency that will more easily disappear. In this way, we also remove the need for professional tutors and keep Fluent to be free, open, and accessible for a wide audience range.
 
 ##Tools
-
-- React
-- Bulma
-- Next.js
-- Django
-- Django Rest Framework
-- WebRTC
+| | | |
+|:---:|:---:|:---:|
+| ![React](../tools/react.png) | ![Bulma](../tools/bulma.png) | ![Next.js](../tools/next.png) |
+| ![Django](../tools/django.png) | ![Django Rest Framework](../tools/drf.png) | ![WebRTC](../tools/webrtc.png) |

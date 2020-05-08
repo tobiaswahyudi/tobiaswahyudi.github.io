@@ -69,6 +69,27 @@
       p {
         text-indent: 1.5rem;
       }
+
+      table, tbody, tr {
+        width: 100%;
+      }
+
+      tr {
+        display: flex;
+        flex-direction: row;
+      }
+
+      td {
+        flex: 1 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        > span {
+          width: 100%;
+        }
+      }
+
     }
 
     .figure {
