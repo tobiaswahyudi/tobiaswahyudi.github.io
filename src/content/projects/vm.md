@@ -9,6 +9,7 @@ startDate: 2019-10-10
 endDate: 2000-08-08
 endDateString: "none"
 img: './vm.png'
+previewImg: './vm_preview.png'
 
 excerpt: "vm is a clone of vim created for the CS246E final project. It was implemented in C++ using Object-Oriented Programming techniques. The project received a final mark of 98%."
 

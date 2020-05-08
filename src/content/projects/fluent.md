@@ -9,13 +9,14 @@ startDate: 2019-06-10
 endDate: 2000-08-08
 endDateString: "current"
 img: './fluent.png'
+mobileImg: './fluent_mobile.png'
 
 excerpt: "Fluent is an online platform which allows its users to practice English via free anonymous peer-to-peer voice calls."
 
 priority: 0
 backgroundHue: 22
 ---
-#The Story
+#What is it?
 *fluent.id* is a website targeted to help students and learners train their english speaking skill. We facilitate anonymous conversations between users to improve their confidence, vocabulary, and overall fluency in english speech. Fluent aims to disrupt traditional teaching methods which are either basic or expensive.
 
 This was my first-ever large scale project, and my first exposure to web development frameworks- most notably React.js and Django.
