@@ -5,6 +5,7 @@ import './projectCard.scss'
 import * as types from '../../../shared/types'
 import { formatDate } from './utils'
 import { hueToTopColor } from '..'
+import ProjectDiagram from './projectDiagram'
 
 export interface ProjectCardProps {
   project: types.MarkdownRemark
@@ -32,7 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="text" dangerouslySetInnerHTML={{ __html: project.html }} />
         <div className="figure">
           <div className="img">
-            fig
+            <ProjectDiagram project={project} />
           </div>
         </div>
       </div>
