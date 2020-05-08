@@ -6,6 +6,7 @@ import * as types from '../../shared/types'
 import Footer from '../../shared/components/footer'
 import { ProjectTransition } from './components/transition'
 import ProjectCard from './components/projectCard'
+import Navbar from '../../shared/components/navbar'
 
 export interface ProjectPageProps {
   data: {
@@ -20,33 +21,36 @@ export const hueToBottomColor = (hue: string): string => `hsla(${hue},57%,64%,1)
 
 const ProjectPageInner: React.FC<ProjectPageProps> = ({ data: { projects } }: ProjectPageProps) => {
   return (
-    <div className="project-page">
-      <ProjectPageIntro />
-      <ProjectTransition
-        bottomColor={hueToTopColor(projects.edges[0].node.frontmatter.backgroundHue)}
-        leftTab={false}
-      />
-      {
-        projects.edges.map(({ node: project }, idx, array) => {
-          return (
-            <React.Fragment key={idx}>
-              <ProjectCard
-                project={project}
-                leftTab={!!(idx % 2)}
-              />
-              {idx !== array.length - 1 &&
-                <ProjectTransition
-                  topColor={hueToBottomColor(project.frontmatter.backgroundHue)}
-                  bottomColor={hueToTopColor(array[idx + 1].node.frontmatter.backgroundHue)}
-                  leftTab={!(idx % 2)}
+    <>
+      <Navbar />
+      <div className="project-page">
+        <ProjectPageIntro />
+        <ProjectTransition
+          bottomColor={hueToTopColor(projects.edges[0].node.frontmatter.backgroundHue)}
+          leftTab={false}
+        />
+        {
+          projects.edges.map(({ node: project }, idx, array) => {
+            return (
+              <React.Fragment key={idx}>
+                <ProjectCard
+                  project={project}
+                  leftTab={!!(idx % 2)}
                 />
-              }
-            </React.Fragment>
-          )
-        })
-      }
-      <Footer />
-    </div>
+                {idx !== array.length - 1 &&
+                  <ProjectTransition
+                    topColor={hueToBottomColor(project.frontmatter.backgroundHue)}
+                    bottomColor={hueToTopColor(array[idx + 1].node.frontmatter.backgroundHue)}
+                    leftTab={!(idx % 2)}
+                  />
+                }
+              </React.Fragment>
+            )
+          })
+        }
+        <Footer />
+      </div>
+    </>
   )
 }
 
