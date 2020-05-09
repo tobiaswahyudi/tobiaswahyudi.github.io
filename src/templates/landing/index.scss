@@ -27,6 +27,30 @@
         flex-direction: column;
         align-items: center;
 
+        // breakage point
+        @media screen and (max-width: 524px ){
+          font-size: 0.9rem;
+          h1 {
+            font-size: 2.7rem;
+          }
+        }
+
+        // breakage point
+        @media screen and (max-width: 484px ){
+          font-size: 0.8rem;
+          h1 {
+            font-size: 2.4rem;
+          }
+        }
+
+        // breakage point
+        @media screen and (max-width: 444px ){
+          font-size: 0.7rem;
+          h1 {
+            font-size: 2.1rem;
+          }
+        }
+
         div {
           display: flex;
           flex-direction: row;
@@ -60,6 +84,9 @@
 
       .links {
         flex: 1 1;
+        @media screen and (max-width: 786px ){
+          display: none;
+        }
 
         .links-inner {
           float: right;
