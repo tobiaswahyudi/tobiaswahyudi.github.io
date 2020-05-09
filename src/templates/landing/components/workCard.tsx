@@ -26,15 +26,14 @@ interface WorkCardProps {
   card: types.MarkdownRemark
 }
 
-const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
+const WorkCardInner: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
   return (
-    <Link to={card ? card.frontmatter.path : '/'} className="work-card">
-      <div className="container" style={
-        card.frontmatter.cardImageBackground ?
-          { backgroundColor: card.frontmatter.cardImageBackground } :
-          {}
-      }>
-        <div className="img-container">
+    <div className="container" style={
+      card.frontmatter.cardImageBackground ?
+        { backgroundColor: card.frontmatter.cardImageBackground } :
+        {}
+    }>
+      <div className="img-container">
         <Image image={card.frontmatter.img} />
       </div>
       <div className="card-info">
@@ -58,8 +57,21 @@ const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
           </p>
         </div>
       </div>
-      </div>
-    </Link >
+    </div>
+  )
+}
+
+const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
+  if (card.frontmatter.path) return (
+    <Link to={card ? card.frontmatter.path : '/'} className="work-card">
+      <WorkCardInner card={card} />
+    </Link>
+  )
+
+  return (
+    <div className="work-card">
+      <WorkCardInner card={card} />
+    </div>
   )
 }
 

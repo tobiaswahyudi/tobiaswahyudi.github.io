@@ -16,7 +16,7 @@ export interface SharpImage {
 
 export interface FrontMatter {
   date: string
-  path: string
+  path?: string
   slug: string
   tags: string[]
   title: string

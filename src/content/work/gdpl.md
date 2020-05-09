@@ -1,6 +1,5 @@
 ---
 date: 2020-03-20T21:11:34.220Z
-path: "/work#gdplabs"
 tags: ["machine-learning"]
 title: "GDP Labs"
 position: "AI Engineer Intern"
