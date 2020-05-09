@@ -1,6 +1,10 @@
 @import "../../styles/main.scss";
 
 .landing-page {
+  @media screen and (max-width: 786px) {
+    padding-top: 3.5rem;
+  }
+
   p {
     max-width: 32rem;
     text-indent: 2rem;
