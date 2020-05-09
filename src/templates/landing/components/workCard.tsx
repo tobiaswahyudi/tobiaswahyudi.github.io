@@ -51,6 +51,15 @@ const WorkCardInner: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
             {formatDate(card.frontmatter.startDate, card.frontmatter.endDate, card.frontmatter.endDateString)}
           </span>
         </div>
+        <div className="mobile-img-section">
+          <div className="img-container-mobile" style={
+            card.frontmatter.cardImageBackground ?
+              { backgroundColor: card.frontmatter.cardImageBackground } :
+              {}
+          }>
+            <Image image={card.frontmatter.img} />
+          </div>
+        </div>
         <div className="excerpt">
           <p className="overpass-thin">
             {card.frontmatter.excerpt}
