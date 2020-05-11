@@ -5,8 +5,8 @@ title: "Secret Mission Software"
 position: "Software Developer Intern"
 location: "Toronto, Ontario"
 startDate: 2020-01-06
-endDate: 2000-08-08
-endDateString: "current"
+endDate: 2020-04-06
+endDateString: ""
 img: './sms.png'
 
 excerpt: "Collaborated with a team of 5 developers and a Project Manager to deliver a responsive web-app using Typescript, React, Apollo, Graphene, and Django. Used Heroku and GitHub for a streamlined CI pipeline."

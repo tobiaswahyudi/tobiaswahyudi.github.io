@@ -4,12 +4,12 @@ tags: ["machine-learning"]
 title: "GDP Labs"
 position: "AI Engineer Intern"
 location: "Jakarta, Indonesia"
-startDate: 2019-05-10
-endDate: 2019-08-20
+startDate: 2018-06-10
+endDate: 2018-08-20
 endDateString: ""
 img: './gdpl.png'
 
-excerpt: "I used Knowledge Graph-augmented recommender systems to implement an impressive content-based recommender. Then, I researched several deployment options for Knowledge Graphs, including AWS Neptune."
+excerpt: "Specialized in dense Time Series preprocessing and clustering. Developed a new clustering method faster than existing algorithms, and realistically demonstrated on several use cases."
 
 priority: 0
 
