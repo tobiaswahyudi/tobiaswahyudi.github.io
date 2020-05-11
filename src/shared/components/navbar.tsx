@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ showOnScroll = false, scrollTriggerVh =
     <>
       <nav className={scrollNav ? 'show' : 'hide'}>
         <div id="title">
-          <h2>Tobias Wahyudi</h2>
+        <Link to='/'><h2>Tobias Wahyudi</h2></Link>
         </div>
         <div className="nav-desktop">
           <Link to='/'>home</Link>
