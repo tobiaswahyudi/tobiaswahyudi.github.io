@@ -9,7 +9,7 @@ endDate: 2020-04-06
 endDateString: ""
 img: './sms.png'
 
-excerpt: "Collaborated with a team of 5 developers and a Project Manager to deliver a responsive web-app using Typescript, React, Apollo, Graphene, and Django. Used Heroku and GitHub for a streamlined CI pipeline."
+excerpt: "Collaborated with a team of 5 developers and a Project Manager to deliver www.obolx.com - a responsive web-app using Typescript, React, Apollo, Graphene, and Django. Used Heroku and GitHub for a streamlined CI pipeline."
 
 priority: 0
 ---
