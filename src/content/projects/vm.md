@@ -31,4 +31,4 @@ The project received a final mark of 98%.
 - This course strongly emphasized testing your code. There were penalties for submissions that did not compile. Nguyen set up a GitHub test CI for our project early on and it was a massive lifesaver for us.
 - We learned a bit about Doxygen because we reverse-engineering the UML from the C header files.
 - Because both of us were previously web developers, we modeled our MVC design after Redux's unidirectional data flow.
-- We were asked to use `ncurses` - a `C` library to interface with the terminal. It was really interesting. I learned a lot of things about it that I will probably never use again.
+- We were asked to use `ncurses` - a `C` library to interface with the terminal. It was really interesting. I learned so many things specifically about this single library.
