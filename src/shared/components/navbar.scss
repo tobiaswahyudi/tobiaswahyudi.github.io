@@ -21,6 +21,8 @@ nav {
   #title {
     flex: 1 1;
 
+    padding-right: 12px;
+
     h2 {
       font-size: 1.2rem;
       font-weight: 700;
@@ -57,9 +59,9 @@ nav {
 
 .nav-mobile-button {
   display: none;
-  width: 40px;
-  height: 40px;
-  padding: 7px;
+  width: 48px;
+  height: 48px;
+  padding: 9px;
 
   background: none;
   border: none;
@@ -70,8 +72,8 @@ nav {
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
 
     >path,
     line {
@@ -92,7 +94,9 @@ nav {
   }
 
   @media screen and (max-width: 786px) {
-    display: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
