@@ -22,7 +22,7 @@ interface IndexPageProps {
 const IndexPage: React.FC<IndexPageProps> = ({ data }: IndexPageProps) => {
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Home" canonical="https://toby.wahyudi.ca"/>
       <LandingPage work={data.work.edges} projects={data.projects.edges} />
     </>
   )

@@ -14,9 +14,10 @@ interface SEOProps {
   lang?: string,
   meta?: any[],
   title: string
+  canonical?: string
 }
 
-const SEO: React.FC<SEOProps> = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
+const SEO: React.FC<SEOProps> = ({ description = '', lang = 'en', meta = [], title, canonical }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,7 +26,6 @@ const SEO: React.FC<SEOProps> = ({ description = '', lang = 'en', meta = [], tit
             title
             description
             author
-            canonicalLink
           }
         }
       }
@@ -76,7 +76,7 @@ const SEO: React.FC<SEOProps> = ({ description = '', lang = 'en', meta = [], tit
         },
       ].concat(meta)}
     >
-      <link rel="canonical" href={site.siteMetadata.canonicalLink}/>
+      {canonical && <link rel="canonical" href={canonical} />}
     </Helmet>
   )
 }

@@ -3,7 +3,7 @@ module.exports = {
     title: `Toby Wahyudi`,
     description: `Toby Wahyudi's personal website, showcasing his work experience, projects, and anything else he feels like putting here.`,
     author: `@tobiaswahyudi`,
-    canonicalLink: `https://toby.wahyudi.ca`,
+    siteUrl: `https://toby.wahyudi.ca`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
