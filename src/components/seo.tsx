@@ -6,11 +6,17 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+interface SEOProps {
+  description?: string,
+  lang?: string,
+  meta?: any[],
+  title: string
+}
+
+const SEO: React.FC<SEOProps> = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +25,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            canonicalLink
           }
         }
       }
@@ -68,21 +75,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="canonical" href={site.siteMetadata.canonicalLink}/>
+    </Helmet>
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO
