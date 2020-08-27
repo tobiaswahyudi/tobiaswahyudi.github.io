@@ -33,12 +33,14 @@ query{
   projects: allMarkdownRemark(
     filter: {fileAbsolutePath: {regex: "/content\/projects\//"}}
     sort: { order: [DESC, DESC], fields: [frontmatter___priority, frontmatter___startDate] }
+    limit: 3
   ) {
     ...MarkdownRemarkFields
   }
   work: allMarkdownRemark(
     filter: {fileAbsolutePath: {regex: "/content\/work\//"}}
     sort: { order: [DESC, DESC], fields: [frontmatter___priority, frontmatter___startDate] }
+    limit: 3
   ) {
     ...MarkdownRemarkFields
   }
