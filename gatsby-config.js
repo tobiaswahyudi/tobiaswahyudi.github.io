@@ -18,21 +18,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Merriweather`,
-            variants: [`400`,`700`,`900`]
-          },
-          {
-            family: `Overpass`,
-            variants: [`100`,`100i`,`300`,`400`,`400i`,`600`,`800`]
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
