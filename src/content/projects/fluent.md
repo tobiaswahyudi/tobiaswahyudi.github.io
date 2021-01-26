@@ -2,19 +2,28 @@
 date: 2020-03-20T21:11:34.220Z
 path: "/projects/#fluent"
 slug: "fluent"
-tags: ["react","next"]
-title: "Fluent.id"
-position: "Co-founder"
+tags: [
+  "REACT",
+  "NEXTJS",
+  "BULMA",
+  "DJANGO",
+  "PEERJS",
+]
+company: "Fluent.id"
+title: "Co-founder & Frontend Developer"
 location: "Jakarta, Indonesia"
 startDate: 2019-06-10
-endDate: 2000-08-08
-endDateString: "current"
+endDate: 2019-12-10
+endDateString: ""
 img: './fluent.png'
 mobileImg: './fluent_mobile.png'
 
-excerpt: "Fluent is an online platform which allows its users to practice English via free anonymous peer-to-peer voice calls."
+excerpt: [
+  "Designed and implemented an anonymous platform connecting users to practice English via peer-to-peer-voice calls, reaching 70+ users during launch with 6 reporting significant language improvement.",
+  "Implemented peer-to-peer real-time communication and voice calls using PeerJS."
+]
 
-priority: 0
+priority: 1
 backgroundHue: 22
 ---
 #What is it?
