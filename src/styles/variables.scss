@@ -2,6 +2,7 @@
 
 // Colors
 
+$black: #151722;
 $background: #FCFCFA;
 $background-gradient: #F3F3F2;
 $gray: #f1f1f1;
@@ -17,3 +18,10 @@ $darkblue: rgb(18, 107, 214);
 $footer-gradient: linear-gradient(270deg, #E4D6C2 0%, #F5FCD7 24.48%, #D3F7D8 50%, #D9FFFB 100%);
 
 // Screen widths
+
+$max-phone: 785px;
+
+$min-tablet: 786px;
+$max-tablet: 1023px;
+
+$min-desktop: 1024px;
