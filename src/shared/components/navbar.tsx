@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ showOnScroll = false, scrollTriggerVh =
         <Link to='/projects'>projects</Link>
         <NavSeparator />
         <Link to='/#contact'>contact</Link>
-        <a href='/Resume.pdf' className="resume">resume</a>
+        <a href='/TobiasWahyudi_Resume_Jan2021_Both.pdf' className="resume">resume</a>
       </div>
     </nav>
   )

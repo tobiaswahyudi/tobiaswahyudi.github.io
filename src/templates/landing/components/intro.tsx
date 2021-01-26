@@ -32,7 +32,7 @@ export const LandingPageIntro: React.FC = () => {
             <div className="links-inner">
               <Link to='/projects'>projects</Link>
               <Link to='/#contact'>contact</Link>
-              <a href='/Resume.pdf' className="resume">resume</a>
+              <a href='/TobiasWahyudi_Resume_Jan2021_Both.pdf' className="resume">resume</a>
             </div>
           </div>
         </div>
