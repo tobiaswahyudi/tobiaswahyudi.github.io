@@ -20,12 +20,12 @@ export interface FrontMatter {
   slug: string
   tags: string[]
   title: string
-  position: string
+  company?: string
   location: string
   startDate: Date
   endDate: Date
   endDateString: EndDate
-  excerpt: string
+  excerpt: string[]
   img: SharpImage
 
   previewImg?: SharpImage

@@ -36,7 +36,7 @@ fragment MarkdownRemarkFields on MarkdownRemarkConnection {
         tags
         
         title
-        position
+        company
         location
         startDate
         endDate
