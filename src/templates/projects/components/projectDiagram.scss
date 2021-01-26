@@ -10,29 +10,29 @@
   align-items: center;
   justify-content: center;
 
-  padding: 10vh 0 30vh;
-
-  @media screen and (max-width: 1024px) {
+  padding: 0 0 2rem;
+  
+  @media screen and (min-width: $min-tablet) {
     width: 263px;
     height: 274px;
   }
-
-  @media screen and (max-width: 786px) {
-    padding: 0 0 2rem;
+  
+  @media screen and (min-width: $min-desktop) {
+    padding: 10vh 0 30vh;
   }
 
   
 
   .transformer {
-    transform: skew(-32deg, 12deg) scale(0.4);
     position: relative;
-    left: -6px;
-    top: -13px;
+    transform: skew(-32deg, 12deg) scale(0.3);
+    left: -4px;
+    top: -9px;
 
-    @media screen and (max-width: 1024px) {
-      transform: skew(-32deg, 12deg) scale(0.3);
-      left: -4px;
-      top: -9px;
+    @media screen and (min-width: $min-desktop) {
+      transform: skew(-32deg, 12deg) scale(0.4);
+      left: -6px;
+      top: -13px;
     }
   }
 
@@ -58,14 +58,13 @@
 
 .preview {
   width: 360px;
-  max-width: 32vw;
-  height: auto;
-
-  padding: 10vh 0 30vh;
-
-  @media screen and (max-width: 786px) {
-    padding: 0 0 2rem;
-    max-width: unset;
-    width: 240px;
+  padding: 0 0 2rem;
+  max-width: unset;
+  width: 240px;
+  
+  @media screen and (min-width: $min-tablet) {
+    padding: 10vh 0 30vh;
+    max-width: 32vw;
+    height: auto;
   }
 }

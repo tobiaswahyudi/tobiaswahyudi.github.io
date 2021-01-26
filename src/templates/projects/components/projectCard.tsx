@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       <div className={`header overpass-extrabold ${leftTab ? "left" : ""}`}>
         <span className="title">
-          {project.frontmatter.title}
+          {project.frontmatter.company || project.frontmatter.title}
         </span>
         <span className="date">
           {formatDate(project.frontmatter.startDate)}

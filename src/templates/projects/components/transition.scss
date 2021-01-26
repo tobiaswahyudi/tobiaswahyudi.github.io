@@ -6,12 +6,12 @@
   overflow: hidden;
   padding-top: 20px;
   svg {
-    width: 551px;
-    height: 88px;
+    width: 55.1vw;
+    height: 8.9vw;
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
-    @media screen and (max-width: 786px) {
-      width: 55.1vw;
-      height: 8.9vw;
+    @media screen and (min-width: $min-tablet) {
+      width: 551px;
+      height: 88px;
     }
   }
 }
