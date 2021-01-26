@@ -2,14 +2,14 @@
 date: 2020-03-20T21:11:34.220Z
 path: "/projects/#goosenest"
 slug: "goosenest"
-tags: ["react","next"]
+tags: ["react","nextjs","firebase","node"]
 title: "GooseNest"
 location: "Hack the North 2019"
 startDate: 2019-09-10
 img: './goosenest.png'
 mobileImg: './goosenest.gif'
 
-excerpt: ["GooseNest is a community for apartment or residence buildings where people can communicate freely and anonymously in group chats. This project was created in 48 hours during the Hack the North 2019 Hackathon."]
+excerpt: ["GooseNest is a community for apartment or residence buildings where people can communicate freely and anonymously in group chats. This project was created in 48 hours during the Hack the North 2019 Hackathon.","Intended as a server-side-rendered progressive web app, GooseNest was built using NextJS, with a Firebase and Node backend."]
 
 priority: 0
 backgroundHue: 130

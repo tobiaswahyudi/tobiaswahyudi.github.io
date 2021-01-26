@@ -12,7 +12,7 @@ endDate: 2018-08-20
 endDateString: ""
 img: './gdpl.png'
 
-excerpt: ["Specialized in dense Time Series preprocessing and clustering.","Developed a new clustering method faster than existing algorithms, and realistically demonstrated on several use cases."]
+excerpt: ["Researched and experimented with dense Time Series preprocessing and clustering methods.","Developed a new clustering method with faster asymptotic time than existing algorithms, and realistically demonstrated on several use cases."]
 
 priority: 0
 

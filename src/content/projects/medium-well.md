@@ -10,7 +10,7 @@ endDateString: "none"
 img: './medium-well.png'
 previewImg: './medium-well.png'
 
-excerpt: ["MediumWell is a text editor app built on Angular and Firebase.","It was created as part of an interview application, and features rich text editing."]
+excerpt: ["MediumWell is a text editor app built on Angular and Firebase, with a design inspired by Medium, Overleaf, and Google Docs.","It was created as part of an interview application, and features rich text editing powered by YABWE's MediumEditor library."]
 
 priority: 0
 backgroundHue: 275
