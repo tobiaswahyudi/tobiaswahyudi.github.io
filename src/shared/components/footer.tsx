@@ -7,11 +7,23 @@ import Linkedin from '../../images/linkedin.svg'
 // @ts-ignore
 import Gmail from '../../images/gmail.svg'
 
+// @ts-ignore
+import GatsbyUrl from '../../images/gatsby.png'
+// @ts-ignore
+import GraphqlUrl from '../../images/graphql.png'
+// @ts-ignore
+import Remark from '../../images/remark.svg'
+
 const Footer: React.FC = () => {
+
   return (
     <div className="footer overpass-thin">
       <div id="made-in">
-        <span>Made with 💛 in Toronto, Ontario</span>
+        <span>Powered by </span>
+        <img src={GatsbyUrl} alt="Gatsby" id="gatsby"/>
+        <span> and </span>
+        <Remark alt="remarkjs"/>
+        <span>.</span>
       </div>
       <div id="links">
         <a href="https://github.com/tobiaswahyudi"><Github/></a>
@@ -19,7 +31,7 @@ const Footer: React.FC = () => {
         <a href="mailto:tobiaswahyudi@gmail.com"><Gmail/></a>
       </div>
       <div id="copyright">
-        <span>© 2020 Tobias Wahyudi</span>
+        <span>© 2021 Tobias Wahyudi</span>
       </div>
     </div>
   )

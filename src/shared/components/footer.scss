@@ -14,11 +14,23 @@
   background: $footer-gradient;
 
   #made-in {
-    display: flex;
     flex: 1 1;
     display: none;
     @media screen and (min-width: $min-tablet) {
-      display: unset;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    #gatsby {
+      height: 1.1rem;
+      margin: 0 0.3rem;
+      padding-bottom: 0.3rem;
+    }
+    svg {
+      width: auto;
+      height: 1.1rem;
+      margin: 0 -0.1rem 0 0.2rem;
+      padding-bottom: 0.25rem;
     }
   }
 
