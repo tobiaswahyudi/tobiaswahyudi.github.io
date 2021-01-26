@@ -37,7 +37,7 @@ export const LandingPageIntro: React.FC = () => {
           </div>
         </div>
         <div className="paragraph-about">
-          <p>I’m a second-year CS student at the University of Waterloo. I'm currently exploring front-end and back-end software development, centered around React, Django, and GraphQL.</p>
+          <p>I’m a third-year CS student at the University of Waterloo. I'm currently exploring front-end and back-end software development, centered around React, Django, and GraphQL.</p>
         </div>
         <div className="paragraph-interests">
           <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>

@@ -140,6 +140,14 @@
       p {
         text-align: right;
       }
+
+      @media screen and (max-width: $max-phone-s ){
+        float: left;
+        justify-content: flex-start;
+        p {
+          text-align: left;
+        }
+      }
     }
 
     .paragraph-interests {
