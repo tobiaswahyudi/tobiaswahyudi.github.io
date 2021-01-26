@@ -7,6 +7,10 @@
     padding-top: unset;
   }
 
+  @media print {
+    padding-top: unset;
+  }
+
   p {
     max-width: 32rem;
     text-indent: 2rem;
