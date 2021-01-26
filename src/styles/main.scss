@@ -2,6 +2,7 @@
 
 // Mobile-first
 html {
+  overflow-x: hidden;
   font-size: 15px;
   scroll-behavior: smooth;
   @media screen and (max-width: $max-phone-s){

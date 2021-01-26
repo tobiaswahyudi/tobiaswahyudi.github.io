@@ -170,8 +170,16 @@
   }
 
   .contact {
-    padding: 4rem 4rem 0 4rem;
+    padding: 2rem 2rem 0 2rem;
     margin-bottom: 2.4rem;
+
+    @media screen and (min-width: $min-tablet ){
+      padding: 4rem 4rem 0 4rem;
+    }
+
+    @media screen and (max-width: $max-phone-s ){
+      padding: 1rem 1rem 0 1rem;
+    }
 
     .has-errors {
       box-shadow: 0 0 0 1.7pt $red;
@@ -205,6 +213,10 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        @media screen and (min-width: $min-desktop){
+          max-width: calc( #{$min-desktop} - 8rem );
+        }
 
         input,
         textarea {
@@ -258,6 +270,7 @@
             flex: 0 0 12.5em;
             box-shadow: -1px 3px 10px rgba(0, 0, 0, 0.25);
             background: $brightyellow;
+            cursor: pointer;
           }
         }
       }
