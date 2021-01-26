@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Image from '../../../shared/components/Image'
+import { TagColors } from '../../../content/tagColors'
 
 import './workCard.scss'
 import * as types from '../../../shared/types'
@@ -22,66 +22,92 @@ const formatDate: (startDate: Date, endDate: Date, endDateString: types.EndDate)
     return returnString
   }
 
+interface ChipProps {
+  text: string
+}
+
+const Chip: React.FC<ChipProps> = ({ text }: ChipProps) => {
+
+  const hue = TagColors.find(tagColor => tagColor.text.toLowerCase() === text.toLowerCase())?.hue ?? -1;
+
+  return (
+    <div className="chip"
+      style={ hue == -1 ? {
+        background: "linear-gradient(105.73deg, #C6FDC5 21.49%, #EEF2CF 52.5%, #FFD5AD 85.14%)",
+        color: `hsl(0, 0%, 30%)`,
+      } : {
+        background: `linear-gradient(105.73deg, hsl(${hue}, 95%, 93%) 6.81%, hsl(${hue}, 100%, 84%) 85.14%)`,
+        color: `hsl(${hue}, 50%, 30%)`,
+      }}
+    ><span>{text.toUpperCase()}</span></div>
+  )
+}
+
 interface WorkCardProps {
   card: types.MarkdownRemark
 }
 
-const WorkCardInner: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
+const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
+
+  const background = card.frontmatter.cardImageBackground;
+
   return (
-    <div className="container" style={
-      card.frontmatter.cardImageBackground ?
-        { backgroundColor: card.frontmatter.cardImageBackground } :
+    <div className="work-card" style={
+      background ?
+        { background: background } :
         {}
     }>
-      <div className="img-container">
-        <Image image={card.frontmatter.img} />
+      <div className="work-card-img" >
+        <Image image={card.frontmatter.img} widthRem={background ? 7 : 5} />
       </div>
-      <div className="card-info">
-        <div className="title">
-          <span className="overpass-semibold">
-            {`${card.frontmatter.position ? `${card.frontmatter.position}, ` : ''}${card.frontmatter.title}`}
-          </span>
-        </div>
-        <hr />
-        <div className="time-place">
-          <span className="place overpass-regular-italic">
+      <div className="work-card-content">
+        <span className="work-card-title">{card.frontmatter.title}</span>
+        {card.frontmatter.title &&
+          <span className="work-card-company">{card.frontmatter.company}</span>
+        }
+        <div className="gray-line" />
+        <div className="location-date">
+          <span className="location">
             {card.frontmatter.location}
           </span>
-          <span className="time overpass-light">
+          <span className="date">
             {formatDate(card.frontmatter.startDate, card.frontmatter.endDate, card.frontmatter.endDateString)}
           </span>
         </div>
-        <div className="mobile-img-section">
-          <div className="img-container-mobile" style={
-            card.frontmatter.cardImageBackground ?
-              { backgroundColor: card.frontmatter.cardImageBackground } :
-              {}
-          }>
-            <Image image={card.frontmatter.img} />
-          </div>
+        <div className="work-card-img-mobile" style={
+          background ?
+            { background: background } :
+            {}
+        }>
+          {/*
+            When the card has a background color, then we break through the margins.
+            The result is a card image that can be 7 rem high.
+          */}
+          <Image image={card.frontmatter.img} heightRem={background ? 7 : 5} />
         </div>
-        <div className="excerpt">
-          <p className="overpass-thin">
-            {card.frontmatter.excerpt}
-          </p>
+        <ul className="work-card-description">
+          {card.frontmatter.excerpt.map(desc => <li>{desc}</li>)}
+        </ul>
+        <div className="chips-container">
+          {card.frontmatter.tags.map(tag => <Chip text={tag} />)}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
-  if (card.frontmatter.path) return (
-    <Link to={card ? card.frontmatter.path : '/'} className="work-card">
-      <WorkCardInner card={card} />
-    </Link>
-  )
+// const WorkCard: React.FC<WorkCardProps> = ({ card }: WorkCardProps) => {
+//   if (card.frontmatter.path) return (
+//     <Link to={card ? card.frontmatter.path : '/'} className="work-card">
+//       <WorkCardInner card={card} />
+//     </Link>
+//   )
 
-  return (
-    <div className="work-card">
-      <WorkCardInner card={card} />
-    </div>
-  )
-}
+//   return (
+//     <div className="work-card">
+//       <WorkCardInner card={card} />
+//     </div>
+//   )
+// }
 
 export default WorkCard;

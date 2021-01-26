@@ -1,89 +1,142 @@
 @import "../../../styles/main.scss";
 
 .work-card {
-  margin-bottom: 1.2rem;
-  .container {
-    width: 1000px;
-    display: flex;
-    flex-direction: row;
-
-    background: $gray;
-    box-shadow: -2px 3px 8px 2px rgba(00,00,00,0.25);
-
-    border-radius: 30px;
-
-    @media screen and (max-width: 1100px) {
-      width: 700px;
-    }
-
-    @media screen and (max-width: 786px) {
-      width: calc(100vw - 2rem);
-    }
-
-    .img-container {
-      display: flex;
-      flex: 0 0 240px;
-      justify-content: center;
-      align-items: center;
-
-      @media screen and (max-width: 786px) {
-        display: none;
-      }
-
-      .gatsby-image-wrapper {
-        width: 150px;
-        height: auto;
-      }
-    }
-    .card-info {
-      flex: 1 1;
-      background: $background;
-      border-radius: 30px;
-      padding: 1.2rem 1.6rem;
-      .title {
-        font-size: 1.2em;
-      }
-      hr {
-        height: 2px;
-        background: $darkgray;
-        margin: 0.4em 0 0.2em 0;
-      }
-      .time-place {
-        color: $darkergray;
-        .time {
-          float: right;
-        }
-        margin-bottom: 0.6em;
-      }
-      p {
-        min-height: 4.5em;
-      }
-    }
-  }
-
-  .mobile-img-section {
-    margin: 0 -1.6rem;
-    padding: 0.5rem 0 1rem;
-
-    @media screen and (min-width: 786px) {
-      display: none;
-    }
-  }
-
-  .img-container-mobile {
-    display: flex;
-    flex: 0 0 240px;
-    justify-content: center;
-    align-items: center;
-    background: $gray;
-    padding: 1rem;
-    width: 100%;
-
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  border-radius: 1.2em;
+  background: radial-gradient(14.91% 47.35% at 8.7% 50%, #f3f2f2 27.6%, #dddddd 100%);
+  box-shadow: -2px 3px 8px 2px rgba(00,00,00,0.25);
+  align-items: center;
+  margin-bottom: 1.2em;
+  position: relative;
   
-    .gatsby-image-wrapper {
-      width: 150px;
-      height: auto;
-    }
+  width: 100%;
+
+  @media screen and (min-width: $min-tablet) {
+    max-width: calc( 100vw - 8rem );
   }
+  
+  @media screen and (min-width: $min-desktop) {
+    max-width: calc( #{$min-desktop} - 8rem );
+  }
+}
+
+
+.work-card-img {
+  width: 5rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 7rem;
+  @media screen and (min-width: $min-tablet) {
+    display: flex;
+  }
+  @media print {
+    display: flex;
+  }
+}
+
+.work-card-img-mobile {
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#f3f2f2, #dddddd);
+  padding: 1rem;
+  margin: 0.5rem -1.5rem;
+  > div {
+    flex: 1;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $min-tablet) {
+    display: none;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.work-card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8em 1.5em;
+  border-radius: 0.8em;
+  background: #FAFAF8;
+  height: 100%;
+  flex: 1;
+}
+.work-card-title {
+  line-height: 130%;
+  font-weight: 600;
+  font-size: 1.25em;
+}
+
+.work-card-company {
+  line-height: 130%;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+  font-size: 1.1em;
+}
+
+.gray-line {
+  width: 100%;
+  background-color: #D7D7D7;
+  height: 2px;
+  border-radius: 1px;
+}
+.location-date {
+  padding-top: 0.3rem;
+  font-weight: 400;
+  display: flex;
+  font-size: 0.8em;
+  flex-direction: row;
+  color: #737373;
+}
+.location {
+  flex: 1;
+  font-style: italic;
+}
+
+.work-card-description {
+  line-height: 150%;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  margin-top: 0.6rem;
+  padding-left: 1.1em;
+}
+
+.chips-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.6rem;
+  width: 100%;
+  flex-wrap: wrap;
+  row-gap: 0.3rem;
+  column-gap: 0.35rem;
+  margin-bottom: -0.2rem;
+}
+
+.chip {
+  padding: 0.4rem 1rem 0.3rem;
+  border-radius: 0.2rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  // flex: 1;
+  justify-content: center;
+  align-items: center;
+  span {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+a {
+  color: #151722;
+  text-decoration: none;
 }
