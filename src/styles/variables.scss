@@ -19,9 +19,15 @@ $footer-gradient: linear-gradient(270deg, #E4D6C2 0%, #F5FCD7 24.48%, #D3F7D8 50
 
 // Screen widths
 
-$max-phone: 785px;
+$max-phone-s: 480px;
 
-$min-tablet: 786px;
-$max-tablet: 1023px;
+$max-phone: 481px;
+$max-phone: 768px;
 
-$min-desktop: 1024px;
+$min-tablet: 769px;
+$max-tablet: 1024px;
+
+$min-desktop: 1025px;
+
+// Shared sizes
+$navbar-height: 5rem;
