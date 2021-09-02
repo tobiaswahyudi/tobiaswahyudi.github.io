@@ -21,11 +21,11 @@ export const LandingPageIntro: React.FC = () => {
               </div>
               <div className="bot">
                 <hr className="mid-line" />
-                <span className="overpass-light">Software Engineer Wizard-in-Training</span>
+                <span className="overpass-light">Developer, Designer, Learner</span>
               </div>
             </div>
             <div className="paragraph-intro">
-              <p>Exploring the arts of front-end, back-end, and machine learning. Collecting skills and stories, one adventure at a time.</p>
+              <p>Learning new things, collecting skills, and making friends - one story at a time.</p>
             </div>
           </div>
           <div className="links">
@@ -39,10 +39,10 @@ export const LandingPageIntro: React.FC = () => {
           </div>
         </div>
         <div className="paragraph-about">
-          <p>I’m a third-year CS student at the University of Waterloo. I'm currently exploring front-end and back-end software development, centered around React, Django, and GraphQL.</p>
+          <p>I’m Toby, a third-year CS student at the University of Waterloo. I'm currently focused on full-stack web development and design, while exploring whatever else catches my eye. I enjoy building things with Javascript, particularly React and GraphQL.</p>
         </div>
         <div className="paragraph-interests">
-          <p>While I am presently focused on software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include machine learning and computational linguistics.</p>
+          <p>While I am presently centered on web and software development, I intend to keep an open eye towards academic and research potentials. My long-term interests include graphics, computational linguistics, and visual storytelling.</p>
         </div>
         {/* <ReadMore path='/' /> */}
       </div>
