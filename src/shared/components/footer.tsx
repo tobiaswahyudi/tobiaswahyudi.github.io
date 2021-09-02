@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
   return (
     <div className="footer overpass-thin">
       <div id="made-in">
-        <span>Powered by </span>
+        {/* <span>Powered by </span>
         <img src={GatsbyUrl} alt="Gatsby" id="gatsby"/>
         <span> and </span>
         <Remark alt="remarkjs"/>
-        <span>.</span>
+        <span>.</span> */}
       </div>
       <div id="links">
         <a href="https://github.com/tobiaswahyudi"><Github/></a>
