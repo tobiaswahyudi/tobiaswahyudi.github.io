@@ -30,7 +30,9 @@ export const LandingPageIntro: React.FC = () => {
           </div>
           <div className="links">
             <div className="links-inner">
-              <Link to='/projects'>projects</Link>
+              {/* <Link to='/projects'>projects</Link> */}
+              <Link to='/#work'>work</Link>
+              <Link to='/#projects'>projects</Link>
               <Link to='/#contact'>contact</Link>
               <a href='/TobiasWahyudi_Resume_Jan2021_Both.pdf' className="resume">resume</a>
             </div>
