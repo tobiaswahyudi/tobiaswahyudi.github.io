@@ -119,10 +119,11 @@
     }
 
     .paragraph-intro {
-      margin-top: 8rem;
+      margin-top: 9rem;
 
       p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        line-height: 160%;
         max-width: 24rem;
         text-indent: 2rem;
         text-align: left;
@@ -131,7 +132,9 @@
     }
 
     .paragraph-about {
-      margin-top: 6rem;
+      font-size: 1.1rem;
+      line-height: 160%;
+      margin-top: 8rem;
       float: right;
       display: flex;
       justify-content: flex-end;
@@ -151,6 +154,8 @@
     }
 
     .paragraph-interests {
+      font-size: 1.1rem;
+      line-height: 160%;
       margin-bottom: 1rem;
     }
   }
