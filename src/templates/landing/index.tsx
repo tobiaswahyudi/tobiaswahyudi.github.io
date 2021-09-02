@@ -20,8 +20,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ work, projects }: LandingPage
       <Navbar showOnScroll={true} scrollTriggerVh={40} />
       <div className="landing-page">
         <LandingPageIntro />
-        <Cards cards={work} title="Work Experience" />
-        <Cards cards={projects} title="Projects" link="/projects" />
+        <Cards cards={work} title="Work Experience" id="work"/>
+        <Cards cards={projects} title="Projects" link="/projects" id="projects"/>
         <ContactForm />
         <Footer />
       </div>

@@ -7,16 +7,14 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: $navbar-height;
+  height: 4rem;
   width: 100vw;
   padding: 0.5rem 2rem;
   box-sizing: border-box;
-
   top: 0;
-  height: 3.5rem;
 
   background: $background;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 8px 1px rgba(00,00,00,0.25);
   z-index: 100;
 
   transition: top 0.3s ease;
@@ -32,20 +30,33 @@ nav {
 
   #title {
     flex: 1 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     h2 {
       font-size: 1.2rem;
       font-weight: 700;
-      display: inline;
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
 
     .small-title {
       display: none;
+      align-items: center;
+      height: 100%;
+    }
+
+    .regular-title {
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
 
     @media screen and (max-width: $max-phone-s){
       .small-title {
-        display: unset;
+        display: flex;
       }
       .regular-title {
         display: none;
