@@ -11,7 +11,7 @@ company: "SAP Canada"
 title: "iXP Full-stack Web and Cloud Developer Co-op"
 location: "Waterloo, Canada"
 startDate: 2021-05-01
-endDate: 2020-08-31
+endDate: 2021-08-31
 endDateString: ""
 img: './sap.png'
 
@@ -20,6 +20,5 @@ excerpt: [
   "Maintained 80%+ code coverage in unit and component tests using Mocha, Sinon, and QUnit."
 ]
 priority: 0
-cardImageBackground: "#EEEEEE"
 ---
 ooo-weee!
