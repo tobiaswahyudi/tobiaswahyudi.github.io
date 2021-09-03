@@ -22,6 +22,10 @@ export const TagColors: TagColor[] = [
   { text: "NEXTJS", hue: 187 },
   { text: "BULMA", hue: 162 },
   { text: "PEERJS", hue: 0 },
+  { text: "UI5", hue: 206 },
+  { text: "MOCHA", hue: 26 },
+  { text: "DOCKER", hue: 195 },
+  { text: "JENKINS", hue: 2 },
   { text: "ANGULAR", hue: 0 },
   { text: "FIREBASE", hue: 37 }
 ]
