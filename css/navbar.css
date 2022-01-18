@@ -1,0 +1,53 @@
+/****************************************************************
+ NAVBAR
+ ***************************************************************/
+
+ nav {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+  color: white;
+  height: 18rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-title {
+  font-size: 1.4rem;
+  
+  font-family: 'Kanit', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.85em;
+  
+  margin-bottom: 1rem;
+}
+
+#nav-timeline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-left: 3px solid #A6E4FF;
+}
+
+
+.nav-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-label {
+  font-family: 'Kanit', sans-serif;
+}
+
+.nav-circle {
+  font-size: 0.7rem;
+  border-radius: 25px;
+  height: 0.8em;
+  width: 0.8em;
+  background: #102521;
+  border: 3px solid #A6E4FF;
+  margin-left: calc( -1em + 3px );
+  margin-right: 0.7rem;
+}

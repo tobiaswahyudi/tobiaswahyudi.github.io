@@ -1,0 +1,136 @@
+/****************************************************************
+ SPLASH
+ ***************************************************************/
+section#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#hero {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 9rem;
+  line-height: 0.8125em;
+  white-space: pre-wrap;
+  padding-right: 1rem;
+  
+  color: rgba(66, 66, 66, 0.26);
+  -webkit-text-stroke: 3px #0000009a;  
+  
+  animation: opacityOscillate 4s alternate infinite ease-in-out;
+  mix-blend-mode: hard-light;
+}
+
+#hero::before {
+  animation: heroBefore 2.73s linear infinite;
+
+  position: absolute;
+  z-index: -1;
+  white-space: pre-wrap;
+  content: "TOBIAS\A    WAHYUDI";
+
+  
+  color: #000000ab;
+  text-shadow: 0px 0px 5px #FFFFFF;
+  mix-blend-mode: multiply;
+}
+
+#hero::after {
+  animation: heroAfter 3.14s linear infinite;
+
+  position: absolute;
+  left: -0.5rem;
+  top: 0.5rem;
+  white-space: pre-wrap;
+  content: "TOBIAS\A    WAHYUDI";
+  
+  background: url(../img/scanlines.gif) no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: #a6e4ffa1;
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.6);
+  opacity: 0.8;
+  /* mix-blend-mode: hard-light; */
+}
+
+#splash-beam {
+  margin-bottom: -145px;
+  z-index: 1;
+  animation: opacityOscillateB 1s alternate infinite ease-in-out;
+}
+
+#splash-projector {
+  padding-right: 62px;
+}
+
+.splash-text {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 2rem;
+  color: white;
+  width: 60rem;
+}
+
+#before-hero {
+  text-align: left;
+}
+
+#after-hero {
+  text-align: right;
+  margin-top: 1.5rem;
+  margin-bottom: calc( -1.5rem - 1em );
+}
+
+/* https://codepen.io/pgalor/pen/OeRWJQ */
+
+@keyframes heroBefore{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg); 
+  }
+}
+
+
+@keyframes heroAfter{
+  2%,62%{
+    transform: translate(-2px,0);
+  }
+  4%,60%,90%{
+    transform: translate(-3px,0);
+  }
+  61%{
+    transform: translate(-7px,3px) scale(1.03) skewX(-10deg); 
+  }
+}
+
+@keyframes opacityOscillate {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes opacityOscillateB {
+  from {
+    opacity: 1;
+    transform: scale(0.9) translate(-4px, 9px);
+  }
+  to {
+    opacity: 0.6;
+    transform: scale(1) translateY(0,0);
+  }
+}
