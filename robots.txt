@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://toby.wahyudi.ca/sitemap.xml
-Host: https://toby.wahyudi.ca
