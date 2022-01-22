@@ -2,8 +2,9 @@
   'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;1,900&family=Work+Sans:ital,wght@1,400;1,600&display=swap'
 );
 
-@import './splash.css';
 @import './navbar.css';
+@import './splash.css';
+@import './about.css';
 
 html {
   font-size: 18px;
@@ -25,12 +26,41 @@ body {
   margin: 0;
 }
 
+
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+  body {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 776px) {
+  html {
+    font-size: 11px;
+  }
+  body {
+    flex-direction: column;
+  }
+}
+
 main {
   padding: 1.5rem;
   flex: 1;
   height: 100vh;
   overflow-x: visible;
   overflow-y: scroll;
+}
+
+section {
+  overflow: visible;
 }
 
 a {

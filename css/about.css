@@ -1,0 +1,24 @@
+/****************************************************************
+ ABOUT
+ ***************************************************************/
+section#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-left: 200vh;
+  width: calc( 100vh - 21rem );
+}
+
+#about-title {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 0.8125em;
+  
+  color: white;
+}
