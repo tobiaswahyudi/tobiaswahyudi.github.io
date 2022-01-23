@@ -5,6 +5,6 @@ document.addEventListener('DOMContentLoaded',() => {
 
   main.addEventListener('scroll', (e) => {
     console.log(e.target.scrollTop);
-    e.target.style.marginLeft = (e.target.scrollTop * -2) + 'px'
+    e.target.style.marginLeft = (e.target.scrollTop * -Math.sqrt(3)) + 'px'
   })
 })

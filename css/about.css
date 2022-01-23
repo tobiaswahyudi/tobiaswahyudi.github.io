@@ -4,11 +4,14 @@
 section#about {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
-  margin-left: 200vh;
-  width: calc( 100vh - 21rem );
+
+  margin-top: -10vh;
+  margin-left: calc( 0.9 * 1.73 * 100vh);
+  width: calc( 100vw - 21rem );
+
+  padding: 10rem 0;
+  box-sizing: border-box;
 }
 
 #about-title {
@@ -19,6 +22,4 @@ section#about {
   font-style: italic;
   font-size: 2rem;
   line-height: 0.8125em;
-  
-  color: white;
 }
