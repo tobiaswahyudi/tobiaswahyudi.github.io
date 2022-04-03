@@ -5,13 +5,7 @@ section#about {
   display: flex;
   flex-direction: column;
   height: 100vh;
-
-  margin-top: -10vh;
-  margin-left: calc( 0.9 * 1.73 * 100vh);
-  width: calc( 100vw - 21rem );
-
-  padding: 10rem 0;
-  box-sizing: border-box;
+  width: calc( 100vh - 21rem );
 }
 
 #about-title {
