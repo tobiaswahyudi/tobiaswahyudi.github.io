@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * LISTENERS
    ***************************************************************************/
   // On resize, call the scroller function.
-  document.addEventListener('resize', () => {
+  window.addEventListener('resize', () => {
     const pos = main.scrollTop;
     (scroller(main, mainContents))({ target: { scrollTop: pos } });
   })
