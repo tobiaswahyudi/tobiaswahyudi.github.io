@@ -7,7 +7,6 @@ section#home {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: calc( 100vw - 21rem );
   box-sizing: content-box;
 }
 

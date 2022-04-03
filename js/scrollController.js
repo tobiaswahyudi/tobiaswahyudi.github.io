@@ -1,4 +1,4 @@
-const WIDTH_CONST = 0.39;
+const WIDTH_CONST = 0.45;
 const HEIGHT_CONST = -0.25;
 
 let WIDTH = 0;

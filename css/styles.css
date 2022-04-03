@@ -57,10 +57,6 @@ main {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-
-
-  outline: 1px solid lightblue;
-  outline-offset: -1px;
 }
 
 #main-contents {
@@ -74,8 +70,7 @@ main {
 
 section {
   overflow: visible;
-  outline: 1px solid white;
-  transform: matrix3d(0.71, 0.71, 0, 0, -0.5, 0.5, 0.71, 0, 0.5, -0.5, 0.71, 0, 0, 0, 0, 1) scale(1.1275,2);
+  transform: matrix3d(0.71, 0.71, 0, 0, -0.5, 0.5, 0.71, 0, 0.5, -0.5, 0.71, 0, 0, 0, 0, 1) scale(1,2);
   /* matrix3d(0.71, 0.71, 0, 0, -0.5, 0.5, 0.71, 0, 0.5, -0.5, 0.71, 0, 0, 0, 0, 1); */
 }
 
