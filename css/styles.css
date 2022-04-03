@@ -27,31 +27,6 @@ body {
   margin: 0;
 }
 
-
-@media screen and (max-width: 1280px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  html {
-    font-size: 12px;
-  }
-  body {
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 776px) {
-  html {
-    font-size: 11px;
-  }
-  body {
-    flex-direction: column;
-  }
-}
-
 main {
   flex: 1;
   height: 100vh;
@@ -75,4 +50,32 @@ section {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+  body {
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    width: 100vw;
+    height: unset;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 776px) {
+  html {
+    font-size: 11px;
+  }
 }

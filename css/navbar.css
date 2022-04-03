@@ -2,10 +2,8 @@
  NAVBAR
  ***************************************************************/
 
- nav {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-
+nav {
+  margin: 0 1.5rem;
   color: white;
   height: 18rem;
   display: flex;
@@ -30,7 +28,6 @@
   border-left: 3px solid #A6E4FF;
 }
 
-
 .nav-link {
   flex: 1;
   display: flex;
@@ -48,6 +45,29 @@
   width: 0.8em;
   background: #102521;
   border: 3px solid #A6E4FF;
-  margin-left: calc( -1em + 3px );
-  margin-right: 0.7rem;
+  margin: 0 0.7rem 0 calc( -1.3em + 3px );
+}
+
+@media screen and (max-width: 900px) {
+  nav {
+    margin: 2rem 0 1rem;
+    height: unset;
+    flex-direction: row;
+    width: 90vw;
+  }
+  #nav-title {
+    flex: 0 0 6em;
+  }
+  #nav-timeline {
+    flex-direction: row;
+    border-top: 3px solid #A6E4FF;
+    border-left: unset;
+  }
+  .nav-link {
+    flex-direction: column;
+  }
+  .nav-circle {
+    margin: calc( -1.3em + 3px ) 0 0.7rem 0;
+  }
+  
 }
