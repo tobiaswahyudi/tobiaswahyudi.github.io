@@ -3,6 +3,7 @@
 );
 
 @import './navbar.css';
+@import './isometric.css';
 @import './splash.css';
 @import './about.css';
 
@@ -10,6 +11,8 @@ html {
   font-size: 14px;
   height: 100%;
   overflow: hidden;
+  font-family: 'Work Sans', sans-serif;
+  color: white;
 }
 
 body {
@@ -68,8 +71,6 @@ a {
   }
   main {
     flex: 1;
-    width: 100vw;
-    height: unset;
     overflow-x: hidden;
     overflow-y: scroll;
   }

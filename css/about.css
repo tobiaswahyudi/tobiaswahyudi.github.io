@@ -11,8 +11,44 @@ section#about {
   position: relative;
   margin: 0;
   padding: 0;
-  font-family: 'Work Sans', sans-serif;
   font-style: italic;
   font-size: 2rem;
-  line-height: 0.8125em;
+  font-weight: 400;
+  
+  width: 17em;
+  margin-right: 10em;
+  margin-bottom: 10em;
+
+  color: white;
 }
+
+#about-interests {
+  font-size: 1.5rem;
+  margin-right: 16em;
+  width: 20em;
+}
+
+#about > img {
+  position: absolute;
+}
+
+#about-transition {
+  width: 32.757em;
+  height: auto;
+  margin-bottom: 4.9em;
+  margin-right: 1em;
+}
+
+#about-e7 {
+  margin-left: 50em;
+  margin-bottom: 8em;
+
+  width: 25em;
+}
+
+#about-roundabout {
+  margin-left: 50.8em;
+  margin-top: 23.7em;
+}
+
+#about-road1 { margin-left: 32em; margin-top: 13.3em; }
