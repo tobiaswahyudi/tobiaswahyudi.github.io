@@ -10,17 +10,12 @@ html {
   font-size: 14px;
   height: 100%;
   overflow: hidden;
-  color: white;
 }
 
 body {
   background: url(../img/moonlight.png);
   background-size: cover;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   width: 100vw;
 
@@ -29,6 +24,7 @@ body {
 
 main {
   flex: 1;
+  width: 100vw;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -36,6 +32,11 @@ main {
 
 #main-contents {
   pointer-events: none;
+}
+
+article, section {
+  width: 100vw;
+  height: 100vh;
   position: absolute;
 }
 

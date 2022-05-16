@@ -3,11 +3,18 @@
  ***************************************************************/
 
 nav {
+  position: absolute;
+  left: 0;
+  top: calc( 50vh - 12rem );
+
   margin: 0 1.5rem;
   color: white;
-  height: 18rem;
+
+  height: 24rem;
+
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 #nav-title {
@@ -50,6 +57,10 @@ nav {
 
 @media screen and (max-width: 900px) {
   nav {
+    position: absolute;
+    top: 0;
+    left: 5vw;
+     
     margin: 2rem 0 1rem;
     height: unset;
     flex-direction: row;
