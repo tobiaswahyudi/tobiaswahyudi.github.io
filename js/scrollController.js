@@ -13,7 +13,7 @@
 // const WIDTH_CONST = 0.4;
 // const HEIGHT_CONST = -0.25;
 const POS_CONST = -Math.sqrt(3);
-const SECTION_OFFSET_IN_VH = 60;
+const SECTION_OFFSET_IN_VH = 75;
 
 /******************************************************************************
  * FUNCTIONS
