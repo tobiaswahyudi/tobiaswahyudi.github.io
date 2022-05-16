@@ -32,6 +32,7 @@ section#about {
 }
 
 #about-transition {
+  font-size: 1.25em;
   width: 32.757em;
   height: auto;
   margin-bottom: 4.9em;
@@ -45,9 +46,17 @@ section#about {
   width: 25em;
 }
 
-#about-roundabout {
-  margin-left: 50.8em;
-  margin-top: 23.7em;
-}
+#about-roundabout { margin-left: 50.8em; margin-top: 23.7em; }
 
 #about-road1 { margin-left: 32em; margin-top: 13.3em; }
+#about-road2 { margin-left: 68.8em; margin-top: 34.3em; }
+#about-road3 { margin-left: 75.8em; margin-top: 38.3em; }
+#about-road4 { margin-left: 82.8em; margin-top: 42.3em; }
+#about-road5 { margin-left: 89.8em; margin-top: 46.3em; }
+
+#about-sign {
+  margin-left: 90em;
+  margin-top: 23em;
+
+  width: 15em;
+}
