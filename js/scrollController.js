@@ -100,8 +100,8 @@ const scroller = (main, mainContents) => (e) => {
     const width = -POS_CONST * height;
     section.style.height = `${height}rem`;
     section.style.width = `${width}rem`;
-    section.style.left = `calc( ${-POS_CONST} * ( 80vh + ${totalHeight}rem ) )`;
-    section.style.top = `calc( 80vh + ${totalHeight}rem )`;
+    section.style.left = `calc( ${-POS_CONST} * ( 100vh + ${totalHeight}rem ) )`;
+    section.style.top = `calc( 100vh + ${totalHeight}rem )`;
     totalHeight += height;
   })
 }
