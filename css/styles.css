@@ -6,6 +6,7 @@
 @import './isometric.css';
 @import './splash.css';
 @import './about.css';
+@import './roadSegment.css';
 
 html {
   font-size: 14px;

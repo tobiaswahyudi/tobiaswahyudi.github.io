@@ -33,30 +33,30 @@ section#about {
 
 #about-transition {
   font-size: 1.25em;
-  width: 32.757em;
+  width: 33.2em;
   height: auto;
-  margin-bottom: 4.9em;
+  margin-bottom: 4.6em;
   margin-right: 1em;
 }
 
 #about-e7 {
   margin-left: 50em;
-  margin-bottom: 8em;
+  margin-bottom: 7.3em;
 
   width: 25em;
 }
 
-#about-roundabout { margin-left: 50.8em; margin-top: 23.7em; }
+#about-roundabout { margin-left: 50.8em; margin-top: 24em; }
 
-#about-road1 { margin-left: 32em; margin-top: 13.3em; }
-#about-road2 { margin-left: 68.8em; margin-top: 34.4em; }
-#about-road3 { margin-left: 75.8em; margin-top: 38.42em; }
-#about-road4 { margin-left: 82.8em; margin-top: 42.44em; }
-#about-road5 { margin-left: 89.8em; margin-top: 46.46em; }
+#about-road1 { margin: 12.6em 0 0 32em; }
+#about-road2 { margin: 33.7em 0 0 68.8em; }
+#about-road3 { margin: 37.72em 0 0 75.8em; }
+#about-road4 { margin: 41.74em 0 0 82.8em; }
+#about-road5 { margin: 45.76em 0 0 89.8em; }
 
 #about-sign {
   margin-left: 90em;
-  margin-top: 23em;
+  margin-top: 23.3em;
 
   width: 15em;
 }

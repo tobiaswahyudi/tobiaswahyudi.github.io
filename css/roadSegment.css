@@ -1,0 +1,12 @@
+/****************************************************************
+ Road Segment
+ ***************************************************************/
+section.roadSegment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment-road1 { margin-right: 7em; margin-bottom: 10.05em; }
+.segment-road3 { margin-left: 7em; margin-top: 4.05em; }

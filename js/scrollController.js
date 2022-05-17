@@ -92,14 +92,17 @@ const scroller = (main, mainContents) => (e) => {
  */
  const alignSections = (mainContents) => {
    let totalHeight = 0;
-  [...mainContents.children].forEach(section => {
-    const vh = section.dataset.vh;
-    const vhOffset = Number(section.dataset.vhOffset || vh);
-    section.style.height = `${vh}vh`;
-    section.style.width = `${-POS_CONST * vh}vh`;
-    section.style.left = `calc( 50vw - 86.6vh + ${-POS_CONST * totalHeight}vh)`;
-    section.style.top = `${totalHeight}vh`;
-    totalHeight += vhOffset;
+  [...mainContents.children].forEach((section, idx) => {
+    // Skip title section
+    if(idx == 0) return;
+
+    const height = Number(section.dataset.height);
+    const width = -POS_CONST * height;
+    section.style.height = `${height}rem`;
+    section.style.width = `${width}rem`;
+    section.style.left = `calc( ${-POS_CONST} * ( 80vh + ${totalHeight}rem ) )`;
+    section.style.top = `calc( 80vh + ${totalHeight}rem )`;
+    totalHeight += height;
   })
 }
 
