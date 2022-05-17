@@ -1,0 +1,38 @@
+/****************************************************************
+ Layer6
+ ***************************************************************/
+section#layer6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment-road3 { margin-left: 7em; margin-top: 4.05em; }
+
+#l6-road4 { margin: 0 63em 42.405em 0; }
+#l6-road5 { margin: 0 56em 38.360em 0; }
+#l6-road6 { margin: 0 49em 34.315em 0; }
+#l6-road7 { margin: 0 42em 30.270em 0; }
+#l6-road8 { margin: 0 35em 26.225em 0; }
+#l6-road9 { margin: 0 28em 22.180em 0; }
+#l6-road10 { margin: 0 21em 18.135em 0; }
+#l6-road11 { margin: 0 14em 14.090em 0; }
+#l6-road12 { margin: 0 7em 10.045em 0; }
+/* #l6-road13 {} */
+#l6-road14 { margin: 0 0 1.955em 7em; }
+#l6-road15 { margin: 0 0 -2.090em 14em; }
+#l6-road16 { margin: 0 0 -6.135em 21em; }
+#l6-road17 { margin: 0 0 -10.180em 28em; }
+#l6-road18 { margin: 0 0 -14.225em 35em; }
+#l6-road19 { margin: 0 0 -18.270em 42em; }
+#l6-road20 { margin: 0 0 -22.315em 49em; }
+#l6-road21 { margin: 0 0 -26.360em 56em; }
+#l6-road22 { margin: 0 0 -30.405em 63em; }
+
+#about-sign {
+  margin-left: 90em;
+  margin-top: 23.3em;
+
+  width: 15em;
+}

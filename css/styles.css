@@ -4,8 +4,11 @@
 
 @import './navbar.css';
 @import './isometric.css';
+
 @import './splash.css';
 @import './about.css';
+@import './layer6.css';
+
 @import './roadSegment.css';
 
 html {
