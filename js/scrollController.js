@@ -94,10 +94,10 @@ const scroller = (main, mainContents) => (e) => {
    let totalHeight = 0;
   [...mainContents.children].forEach(section => {
     const vh = section.dataset.vh;
-    const vhOffset = section.dataset.vhOffset || vh;
+    const vhOffset = Number(section.dataset.vhOffset || vh);
     section.style.height = `${vh}vh`;
-    section.style.width = `${vh}vw`;
-    section.style.left = `${-POS_CONST * totalHeight}vh`;
+    section.style.width = `${-POS_CONST * vh}vh`;
+    section.style.left = `calc( 50vw - 86.6vh + ${-POS_CONST * totalHeight}vh)`;
     section.style.top = `${totalHeight}vh`;
     totalHeight += vhOffset;
   })
