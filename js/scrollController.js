@@ -13,7 +13,6 @@
 // const WIDTH_CONST = 0.4;
 // const HEIGHT_CONST = -0.25;
 const POS_CONST = -Math.sqrt(3);
-const SECTION_OFFSET_IN_VH = 75;
 
 /******************************************************************************
  * FUNCTIONS
@@ -92,10 +91,18 @@ const scroller = (main, mainContents) => (e) => {
  * @param {*} mainContents - the `#main-container`, whose children we will align.
  */
  const alignSections = (mainContents) => {
+   let totalHeight = 0;
   [...mainContents.children].forEach((section, idx) => {
-    console.log(section,idx);
-    section.style.left = `${-SECTION_OFFSET_IN_VH * POS_CONST * idx}vh`;
-    section.style.top = `${SECTION_OFFSET_IN_VH * idx}vh`;
+    // Skip title section
+    if(idx == 0) return;
+
+    const height = Number(section.dataset.height);
+    const width = -POS_CONST * height;
+    section.style.height = `${height}rem`;
+    section.style.width = `${width}rem`;
+    section.style.left = `calc( ${-POS_CONST} * ( 80vh + ${totalHeight}rem ) )`;
+    section.style.top = `calc( 80vh + ${totalHeight}rem )`;
+    totalHeight += height;
   })
 }
 

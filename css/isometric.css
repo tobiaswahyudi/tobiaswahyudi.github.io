@@ -1,8 +1,13 @@
 /****************************************************************
  ISOMETRIC ASSETS
  ***************************************************************/
-.road {
-  margin-bottom: 1em;
+.isometric {
+  font-size: 1.25em;
+  position: absolute;
+}
+
+ .road {
+  margin: 0 0 6em 0;
   width: 6.8em;
 }
 
