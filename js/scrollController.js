@@ -116,7 +116,13 @@ const scrollListenerForContent = (contentDiv, scrollTop, scrollBottom) => () => 
   
   const currentHeight = main.scrollTop + (window.innerHeight / 2);
 
-  contentDiv.style.opacity = smoothe(scrollTop, scrollBottom, 0.1, currentHeight);
+  const opacity = smoothe(scrollTop, scrollBottom, 0.1, currentHeight);
+  contentDiv.style.opacity = opacity;
+  if(opacity == 0){
+    contentDiv.style.display = "none";
+  } else {
+    contentDiv.style.display = "flex";
+  }
 }
 
 /**

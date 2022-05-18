@@ -8,6 +8,8 @@
   width: 40em;
   right: calc( 50vw - 6em);
   top: calc( 50vh + 4em );
+
+  pointer-events: none;
 }
 
 .company-name {
