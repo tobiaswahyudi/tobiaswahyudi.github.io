@@ -5,6 +5,7 @@
 @import './navbar.css';
 @import './isometric.css';
 @import './jobContent.css';
+@import './construction.css';
 
 @import './splash.css';
 @import './about.css';
@@ -49,7 +50,7 @@ article, section {
 }
 
 #dummy {
-  height: 10000px;
+  height: calc( 100vh + 167.25rem );
 }
 
 section {
