@@ -66,6 +66,59 @@ const isometricInverse = (offsetX, offsetY) =>
 //   ${offsetX}, ${offsetY}, 0, 1
 // ) scale(1, 2)`
 
+const scrollListeners = [];
+
+/**   
+ *   Returns a value in [0,1] as follows:
+ * ```
+ *    val
+ *     ^
+ *   1 |      ,------------.
+ *     |     /|            |\
+ *     |    / |            | \
+ *     |   /  |            |  \
+ *   0 --------------------------->  now
+ *        n   r            s   x  
+ * 
+ *   where
+ *    n = min
+ *    x = max
+ *    r = (max-min)*ratio + min
+ *    s = (max-min)*(1 - ratio) + min
+ * ```
+ * @param {Number} min 
+ * @param {Number} max 
+ * @param {Number} ratio 
+ * @param {Number} now 
+ * @returns 
+ */
+const smoothe = (min, max, ratio, now) => {
+  if( now < min || now > max ) return 0;
+  const range = max - min;
+  const normalized = (now - min) / range;
+
+  if( normalized < ratio ) return (normalized/ratio);
+  if( normalized > (1 - ratio) ) return ((1-normalized)/ratio);
+  return 1;
+}
+
+/**
+ * Creates a listener that checks if the middle of the screen is within [scrollTop, scrollBottom].
+ * If so, it turns the contentDiv opaque, otherwise turns it transparent.
+ * 
+ * @param {Element} contentDiv 
+ * @param {Number} scrollTop 
+ * @param {Number} scrollBottom 
+ * @returns a listener.
+ */
+const scrollListenerForContent = (contentDiv, scrollTop, scrollBottom) => () => {
+  const main = document.getElementsByTagName('main')[0];
+  
+  const currentHeight = main.scrollTop + (window.innerHeight / 2);
+
+  contentDiv.style.opacity = smoothe(scrollTop, scrollBottom, 0.1, currentHeight);
+}
+
 /**
  * Scroll listener. When the `main` container is scrolled, moves `mainContents` along the isometric `-y` axis.
  * 
@@ -83,6 +136,8 @@ const scroller = (main, mainContents) => (e) => {
   const dy = -pos;
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
+
+  scrollListeners.forEach(f => f());
 }
 
 /**
@@ -100,9 +155,17 @@ const scroller = (main, mainContents) => (e) => {
     const width = -POS_CONST * height;
     section.style.height = `${height}rem`;
     section.style.width = `${width}rem`;
-    section.style.left = `calc( ${-POS_CONST} * ( 100vh + ${totalHeight}rem ) )`;
+    section.style.left = `calc( ${-POS_CONST} * ( 90vh + ${totalHeight}rem ) + ( 50vw - ( ${-POS_CONST} * 50vh ) ) )`;
     section.style.top = `calc( 100vh + ${totalHeight}rem )`;
     totalHeight += height;
+
+    const sectionId = section.id;
+    const sectionContent = document.getElementById(sectionId + "-content");
+
+    if(sectionContent){
+      const scrollTop = Number(getComputedStyle(section).top.split('px')[0]);
+      scrollListeners.push( scrollListenerForContent(sectionContent, scrollTop, scrollTop + section.scrollHeight) );
+    }
   })
 }
 

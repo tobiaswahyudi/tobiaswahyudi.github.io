@@ -1,0 +1,35 @@
+/****************************************************************
+ WORK EXPERIENCE CONTENT
+ ***************************************************************/
+.content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 40em;
+  right: calc( 50vw - 6em);
+  top: calc( 50vh + 4em );
+}
+
+.company-name {
+  font-size: 2em;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.job-title {
+  font-size: 1.5em;
+}
+
+.when-where {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.description {
+  line-height: 1.5;
+}
+
+.description > li {
+  margin-bottom: 1em;
+}
