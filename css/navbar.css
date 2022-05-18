@@ -10,7 +10,7 @@ nav {
   margin: 0 1.5rem;
   color: white;
 
-  height: 24rem;
+  height: 30rem;
 
   display: flex;
   flex-direction: column;
@@ -53,6 +53,18 @@ nav {
   background: #102521;
   border: 3px solid #A6E4FF;
   margin: 0 0.7rem 0 calc( -1.3em + 3px );
+}
+
+#resume-link {
+  font-weight: 600;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.icon-link > img {
+  fill: white;
+  height: 1.5rem;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 900px) {
