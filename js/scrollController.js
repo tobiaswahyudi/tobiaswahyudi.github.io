@@ -111,7 +111,8 @@ const smoothe = (min, max, ratio, now) => {
  * @param {Number} scrollBottom 
  * @returns a listener.
  */
-const scrollListenerForContent = (contentDiv, scrollTop, scrollBottom) => () => {
+const scrollListenerForContent = (contentId, scrollTop, scrollBottom) => () => {
+  const contentDiv = document.getElementById(contentId)
   const main = document.getElementsByTagName('main')[0];
   
   const currentHeight = main.scrollTop + (window.innerHeight / 2);
@@ -140,6 +141,7 @@ const scroller = (main, mainContents) => (e) => {
 
   const dx = POS_CONST * pos;
   const dy = -pos;
+  console.log(pos)
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
 
@@ -166,11 +168,12 @@ const scroller = (main, mainContents) => (e) => {
     totalHeight += height;
 
     const sectionId = section.id;
-    const sectionContent = document.getElementById(sectionId + "-content");
+    const contentId = sectionId + "-content";
+    const sectionContent = document.getElementById(contentId);
 
     if(sectionContent){
       const scrollTop = Number(getComputedStyle(section).top.split('px')[0]);
-      scrollListeners.push( scrollListenerForContent(sectionContent, scrollTop, scrollTop + section.scrollHeight) );
+      scrollListeners.push( scrollListenerForContent(contentId, scrollTop, scrollTop + section.scrollHeight) );
     }
   })
 }

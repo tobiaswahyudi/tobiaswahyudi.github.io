@@ -16,6 +16,8 @@
     gtag('config', 'G-PM47MH4WZH');
   </script>
   <script src="js/scrollController.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/worldRender.js"></script>
 </head>
 
 <body>
@@ -68,15 +70,6 @@
           <br><br>
           My current interests include Rust and WebGL!
         </p>
-        <img class="isometric" id="about-transition" src="img/transition1.png">
-        <img class="isometric roundabout" id="about-roundabout" src="img/roundabout.png">
-        <img class="isometric road" id="about-road1" src="img/road.png">
-        <img class="isometric road" id="about-road2" src="img/road.png">
-        <img class="isometric road" id="about-road3" src="img/road.png">
-        <img class="isometric road" id="about-road4" src="img/road.png">
-        <img class="isometric road" id="about-road5" src="img/road.png">
-        <img class="isometric" id="about-sign" src="img/workSign.png">
-        <img class="isometric" id="about-e7" src="img/E7.png">
       </section>
       <section class="spacer" data-height="17.75"></section>
       <section class="roadSegment" data-height="7.5">
@@ -169,5 +162,6 @@
     <div id="dummy"></div>
   </main>
 </body>
-
+<canvas id="world"></canvas>
+<canvas id="bg"></canvas>
 </html>
