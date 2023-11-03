@@ -28,6 +28,41 @@ world.forEach(unit => initUnit(unit))
 const taxicab = new Image();
 taxicab.src = "img/world/people/taxicab.png";
 
+/**********************************************
+ * Helper for finding object offset placements
+ **********************************************/
+
+var ACTIVE_EDITING = undefined;
+
+document.addEventListener('keydown', function (event) {
+  const key = event.key;
+  if (!ACTIVE_EDITING) return;
+
+  switch (event.key) {
+    case "a":
+      // Left pressed
+      ACTIVE_EDITING.offset.x -= 1;
+      break;
+    case "d":
+      // Right pressed
+      ACTIVE_EDITING.offset.x += 1;
+      break;
+    case "w":
+      // Up pressed
+      ACTIVE_EDITING.offset.y -= 1;
+      break;
+    case "s":
+      // Down pressed
+      ACTIVE_EDITING.offset.y += 1;
+      break;
+  }
+  console.log(ACTIVE_EDITING.offset);
+});
+
+/**********************************************
+ * Main Render Loop
+ **********************************************/
+
 const renderWorld = (timestamp) => {
   const ctx = document.getElementById("world").getContext('2d');
   const width = window.innerWidth;
