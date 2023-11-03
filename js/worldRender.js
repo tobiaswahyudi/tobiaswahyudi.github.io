@@ -69,7 +69,7 @@ const renderWorld = (timestamp) => {
   const height = window.innerHeight;
 
   const main = document.getElementsByTagName('main')[0];
-  const currentHeight = main.scrollTop - 0.5*height;
+  const currentHeight = main.scrollTop - 0.5 * height;
 
   // The world origin is located on this spot
   const origin = { x: 0.5 * width, y: 0.5 * height }
@@ -87,7 +87,9 @@ const renderWorld = (timestamp) => {
     currentPos.y += unit.size.y;
   })
 
-  ctx.drawImage(taxicab, width/2 - 32, height/2 - 56);
+  ctx.globalAlpha = Math.max(0, Math.min((currentHeight - 430) / 250, 1));
+  ctx.drawImage(taxicab, width / 2 - 32, height / 2 - 56);
+  ctx.globalAlpha = 1;
 
   // Immediately request another animation frame.
   window.requestAnimationFrame(renderWorld);
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const worldCanvas = document.getElementById("world");
   const ctx = worldCanvas.getContext('2d');
 
-  console.log(ctx);
+  // console.log(ctx);
 
   // On window resize, resize the canvas.
   window.addEventListener('resize', () => {

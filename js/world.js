@@ -17,7 +17,7 @@
 const units = {
   road: {
     src: "img/world/units/road.png",
-    size: {x: 63, y: 36.3},
+    size: {x: 63, y: 36.35},
     offset: {x: 0, y: 0}
   },
   crossing: {
@@ -32,8 +32,13 @@ const units = {
   },
   intersection: {
     src: "img/world/units/intersection.png",
-    size: {x: 227, y: 129},
-    offset: {x: 0, y: -1.7}
+    size: {x: 225, y: 129},
+    offset: {x: -1, y: -1.7}
+  },
+  land: {
+    src: "img/world/units/land.svg",
+    size: {x: 0, y: 0},
+    offset: {x: 187, y: -45}
   }
 }
 
@@ -42,7 +47,8 @@ const world = [
     src: "img/world/buildings/transition1.png",
     size: {x: 532.5, y: 278},
     offset: {x: 0, y: 0}
-  },{
+  },
+  {
     src: "img/world/units/roundabout.png",
     size: {x: 0, y: 0},
     offset: {x: 0, y: 0}
@@ -66,12 +72,30 @@ const world = [
   units.road,
   units.road,
   units.road,
+  units.road,
+  units.land,
+  units.intersection,
+  {
+    src: "img/world/buildings/Splunk.png",
+    size: {x: 0, y: 0},
+    offset: {x: 3, y: -270}
+  },
+  units.road,
+  units.road,
+  units.road,
+  units.road,
+  units.road,
+  units.intersection,
+  units.road,
+  units.road,
+  units.road,
+  units.land,
+  units.intersection,
   {
     src: "img/world/buildings/L6.png",
     size: {x: 0, y: 0},
-    offset: {x: 198, y: -293}
+    offset: {x: 57, y: -339}
   },
-  units.intersection,
   units.road,
   units.road,
   units.road,
