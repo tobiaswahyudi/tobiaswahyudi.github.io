@@ -25,6 +25,9 @@ const initUnit = (unit) => {
 
 world.forEach(unit => initUnit(unit))
 
+const taxicab = new Image();
+taxicab.src = "img/world/people/taxicab.png";
+
 const renderWorld = (timestamp) => {
   const ctx = document.getElementById("world").getContext('2d');
   const width = window.innerWidth;
@@ -49,6 +52,9 @@ const renderWorld = (timestamp) => {
     currentPos.y += unit.size.y;
   })
 
+  ctx.drawImage(taxicab, width/2 - 32, height/2 - 56);
+
+  // Immediately request another animation frame.
   window.requestAnimationFrame(renderWorld);
 }
 
@@ -61,32 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(ctx);
 
-  window.requestAnimationFrame(renderWorld);
-
-  /****************************************************************************
-   * SETUP
-   ***************************************************************************/
-  // Give each section the inverse isometric transform
-  [...document.getElementsByTagName('section')].forEach(sec => {
-    sec.style.transform = isometricInverse(0, 0);
-  })
-  // Attach to cars and such
-
-  /****************************************************************************
-   * LISTENERS
-   ***************************************************************************/
-  // On resize, call the scroller and aligner functions.
+  // On window resize, resize the canvas.
   window.addEventListener('resize', () => {
-    // const pos = main.scrollTop;
-    // (scroller(main, mainContents))({ target: { scrollTop: pos } });
     resizeCanvas(worldCanvas);
   })
-  /****************************************************************************
-   * FINALIZE
-   ***************************************************************************/
+
+  // Resize the canvas on init.
   resizeCanvas(worldCanvas);
-  // Initialize sections alignment
-  // alignSections(mainContents);
-  // Call the scroller function to initialize the `#main-contents` transform.
-  // (scroller(main, mainContents))({ target: { scrollTop: 0 } });
+
+  // Start rendering the canvas.
+  window.requestAnimationFrame(renderWorld);
 })

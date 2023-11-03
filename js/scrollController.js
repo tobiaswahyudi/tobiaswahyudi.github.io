@@ -66,8 +66,6 @@ const isometricInverse = (offsetX, offsetY) =>
 //   ${offsetX}, ${offsetY}, 0, 1
 // ) scale(1, 2)`
 
-const scrollListeners = [];
-
 /**   
  *   Returns a value in [0,1] as follows:
  * ```
@@ -126,6 +124,11 @@ const scrollListenerForContent = (contentId, scrollTop, scrollBottom) => () => {
   }
 }
 
+const scrollListeners = [
+  scrollListenerForContent('layer6-content', 1770, 2200)
+];
+
+
 /**
  * Scroll listener. When the `main` container is scrolled, moves `mainContents` along the isometric `-y` axis.
  * 
@@ -141,7 +144,7 @@ const scroller = (main, mainContents) => (e) => {
 
   const dx = POS_CONST * pos;
   const dy = -pos;
-  console.log(pos)
+  console.log(pos, main.scrollTop + (window.innerHeight / 2))
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
 
