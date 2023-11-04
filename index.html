@@ -113,5 +113,23 @@
     </div>
     <div id="dummy"></div>
   </main>
+  <!-- stats.js; referenced from https://github.com/VincentGarreau/particles.js/blob/master/demo/index.html -->
+<script src="js/stats.js"></script>
+<script>
+  var stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+</script>
 </body>
 </html>
