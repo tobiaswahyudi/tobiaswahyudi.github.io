@@ -2,8 +2,6 @@
  * Render Canvas
  *****************************************************************************/
 
-let lastTimestamp = 0;
-
 const renderCanvas = (timestamp) => {
     const ctx = document.getElementById("world").getContext('2d');
     const width = window.innerWidth;
@@ -14,10 +12,7 @@ const renderCanvas = (timestamp) => {
   
   ctx.clearRect(0, 0, width, height);
 
-  // if(timestamp - lastTimestamp > 1/30) {
-  //   renderParticles(ctx, width, height, scrollTop);
-  //   lastTimestamp = timestamp;
-  // }
+  renderParticles(ctx, width, height, scrollTop);
   renderWorld(ctx, width, height, scrollTop);
   window.requestAnimationFrame(renderCanvas);
 }
