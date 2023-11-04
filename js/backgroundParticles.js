@@ -161,7 +161,7 @@ const randomParticle = (screenTop, screenWidth, screenHeight) => {
     screenTop - PARTICLES_CONFIG.screenPadding + (Math.random() * (screenHeight + 2*PARTICLES_CONFIG.screenPadding)),
     (1 + Math.random()) * 0.8,
     1 + (Math.random()) * 2,
-    (0.5 + Math.random()) * 0.3
+    (0.4 + Math.random() * 0.6) * 0.1
   );
 }
 
