@@ -8,7 +8,8 @@ const PARTICLES_CONFIG = {
   // Extends tracking of particles outside of the screen by this extent.
   screenPadding: 100,
   // How many particles should be on screen at any given time
-  particleCount: 20,
+  particleCount: 30,
+  opacity: 0.06,
   
   // Probability to deflect from the SE path to an E path or an S path
   deflectionProbability: 0.1,
@@ -27,6 +28,9 @@ const PARTICLES_CONFIG = {
 
   // Maximum paths to track
   pathsToTrack: 10,
+
+  // Space between particles in group
+  spaceBetween: 2,
 }
 
 // Helper class: circular buffer
@@ -76,13 +80,14 @@ const lerp = (a,b, x) => {
  **********************************************/
 
 class BackgroundParticle {
-  constructor(x, y, vel, radius, opacity, pathTrace) {
+  constructor(x, y, vel, radius, opacity, pathTrace, quantity) {
     this.x = x;
     this.y = y;
     this.vel = vel;
     this.radius = radius;
     this.currentOpacity = 0;
     this.targetOpacity = opacity;
+    this.quantity = quantity;
 
     this.pathPoints = new CircularBuffer(PARTICLES_CONFIG.pathsToTrack + 1);
     this.pathPoints.push([x,y]);
@@ -101,7 +106,7 @@ class BackgroundParticle {
           const lastPoint = this.pathPoints.at(0);
           if(Math.hypot(this.x - lastPoint[0], this.y - lastPoint[1]) < PARTICLES_CONFIG.deflectionMinimalLength) break;
 
-          this.direction = (Math.random() < 0.45) ? "S" : "E";
+          this.direction = (Math.random() < 0.4) ? "S" : "E";
           if(this.pathPoints.full()) this.pathPoints.pop();
           this.pathPoints.push([this.x, this.y]);
         }
@@ -151,31 +156,37 @@ class BackgroundParticle {
     context.strokeStyle = context.fillStyle;
     context.lineWidth = this.radius;
 
-    context.beginPath();
-    context.moveTo(this.x - screenLeft, this.y - screenTop);
-    var pathLength = 0;
-    var lastPoint = [this.x, this.y];
-    for(let i = 0; i < this.pathPoints.count; i++) {
-      const point = this.pathPoints.at(i);
-      const segmentLength = Math.hypot(point[0] - lastPoint[0], point[1] - lastPoint[1]);
-      const remainingLength = this.pathTrace - pathLength;
-      if(segmentLength > remainingLength) {
-        point[0] = lerp(lastPoint[0], point[0], remainingLength / segmentLength);
-        point[1] = lerp(lastPoint[1], point[1], remainingLength / segmentLength);
-        context.lineTo(point[0] - screenLeft, point[1] - screenTop);
-        break;
+    for(let number = 0; number < this.quantity; number++) {
+
+      const xOffset = number * PARTICLES_CONFIG.spaceBetween * this.radius * Math.sqrt(3);
+      const yOffset = - number * PARTICLES_CONFIG.spaceBetween * this.radius;
+
+      context.beginPath();
+      context.moveTo(this.x + xOffset - screenLeft, this.y + yOffset - screenTop);
+      var pathLength = 0;
+      var lastPoint = [this.x + xOffset, this.y + yOffset];
+      for(let i = 0; i < this.pathPoints.count; i++) {
+        const point = this.pathPoints.at(i);
+        const segmentLength = Math.hypot(point[0] - lastPoint[0], point[1] - lastPoint[1]);
+        const remainingLength = this.pathTrace - pathLength;
+        if(segmentLength > remainingLength) {
+          point[0] = lerp(lastPoint[0], point[0], remainingLength / segmentLength);
+          point[1] = lerp(lastPoint[1], point[1], remainingLength / segmentLength);
+          context.lineTo(point[0] + xOffset - screenLeft, point[1] + yOffset - screenTop);
+          break;
+        }
+        context.lineTo(point[0] + xOffset - screenLeft, point[1] + yOffset - screenTop);
+        lastPoint = point;
+        pathLength += segmentLength;
       }
-      context.lineTo(point[0] - screenLeft, point[1] - screenTop);
-      lastPoint = point;
-      pathLength += segmentLength;
+      context.stroke();
+
+
+      context.beginPath(); 
+      context.arc(this.x + xOffset - screenLeft, this.y + yOffset - screenTop, this.radius, 0, Math.PI * 2);
+      context.closePath();
+      context.fill();
     }
-    context.stroke();
-
-
-    context.beginPath(); 
-    context.arc(this.x - screenLeft, this.y - screenTop, this.radius, 0, Math.PI * 2);
-    context.closePath();
-    context.fill();
   }
 };
 
@@ -187,8 +198,9 @@ const randomParticle = (screenTop, screenWidth, screenHeight) => {
     // TODO: make this configurable
     (1 + Math.random()) * 0.8,
     1 + (Math.random()) * 2,
-    (0.4 + Math.random() * 0.6) * 0.04,
-    Math.random() * (PARTICLES_CONFIG.maximalPathTrace - PARTICLES_CONFIG.minimalPathTrace) + PARTICLES_CONFIG.minimalPathTrace
+    (0.4 + Math.random() * 0.6) * PARTICLES_CONFIG.opacity,
+    Math.random() * (PARTICLES_CONFIG.maximalPathTrace - PARTICLES_CONFIG.minimalPathTrace) + PARTICLES_CONFIG.minimalPathTrace,
+    1 + Math.trunc(Math.random() * 3)
   );
 }
 
