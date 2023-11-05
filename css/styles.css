@@ -53,7 +53,7 @@ article, section {
 
 #dummy {
   /* height: calc( 100vh + 167.25rem ); */
-  height: 3500px;
+  height: calc( 2050px + 150vh );
 }
 
 section {
