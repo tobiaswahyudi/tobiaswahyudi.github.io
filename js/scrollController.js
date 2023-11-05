@@ -126,7 +126,8 @@ const scrollListenerForContent = (contentId, scrollTop, scrollBottom) => () => {
 
 const scrollListeners = [
   scrollListenerForContent('splunk-content', 1830, 2140),
-  scrollListenerForContent('layer6-content', 2410, 2720)
+  scrollListenerForContent('layer6-content', 2410, 2720),
+  scrollListenerForContent('road-work-ahead-content', 2900, 3200)
 ];
 
 

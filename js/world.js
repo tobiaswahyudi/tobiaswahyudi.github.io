@@ -17,8 +17,14 @@
 const units = {
   road: {
     src: "img/world/units/road.png",
-    size: {x: 63, y: 36.35},
+    size: {x: 63, y: 36.5},
     offset: {x: 0, y: 0}
+  },
+  accessoryRoad: {
+    src: "img/world/units/road.png",
+    size: {x: 63, y: 36.5},
+    offset: {x: 0, y: 0},
+    accessorize: true,
   },
   crossing: {
     src: "img/world/units/crossing.png",
@@ -102,4 +108,18 @@ const world = [
   units.road,
   units.road,
   units.intersection,
+  units.road,
+  units.road,
+  units.road,
+  units.road,
+  units.road, 
+  units.road,
+  units.road,
+  units.road,
+  {
+    src: "img/world/buildings/roadblock.png",
+    size: {x: 0, y: 0},
+    offset: {x: -78, y: -61}
+  },
+  units.road,
 ]
