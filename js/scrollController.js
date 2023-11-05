@@ -146,7 +146,7 @@ const scroller = (main, mainContents) => (e) => {
 
   const dx = POS_CONST * pos;
   const dy = -pos;
-  console.log(pos, main.scrollTop + (window.innerHeight / 2))
+  // console.log(pos, main.scrollTop + (window.innerHeight / 2))
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
 
