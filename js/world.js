@@ -35,6 +35,11 @@ const units = {
     size: {x: 225, y: 129},
     offset: {x: -1, y: -1.7},
   },
+  intersectionClose: {
+    src: "img/world/units/intersection.png",
+    size: {x: 225, y: 129},
+    offset: {x: -1, y: -1.7},
+  },
   land: {
     src: "img/world/units/Land.svg",
     size: {x: 0, y: 0},
@@ -50,56 +55,56 @@ const units = {
 const intersectionAccessories = {
   trafficlight_double : {
     src: "img/world/units/trafficlight_double.png",
-    offset: {x: -118, y: -201}
+    offset: {x: 105, y: -71}
   },
   trafficlight_perp : {
     src: "img/world/units/trafficlight_perp.png",
-    offset: {x: -186, y: -143}
+    offset: {x: 40, y: -11}
   },
 }
 
 const crossingAccessories = [
   {
     src: "img/world/units/trafficlight_single.png",
-    offset: {x: 0, y: -123}
+    offset: {x: 67, y: -87}
   },
 ]
 
 const roadLeftAccessories = [
   {
     src: "img/world/units/bench.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 0, y: 47}
   },
   {
     src: "img/world/units/lamp.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 35, y: 4}
   },
   {
     src: "img/world/units/tree.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 2, y: -11}
   },
   {
     src: "img/world/units/streetlight_l.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 5, y: -46}
   },
 ]
 
 const roadRightAccessories = [
   {
     src: "img/world/units/hydrant.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 78, y: 6}
   },
   {
     src: "img/world/units/lamp.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 79, y: -24}
   },
   {
     src: "img/world/units/tree.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 85, y: -70}
   },
   {
     src: "img/world/units/streetlight_r.png",
-    offset: {x: 0, y: 0}
+    offset: {x: 81, y: -84}
   },
 ]
 
@@ -146,7 +151,7 @@ const world = [
   units.road,
   units.road,
   units.road,
-  units.intersection,
+  units.intersectionClose,
   units.accessoryRoad,
   units.accessoryRoad,
   units.accessoryRoad,
@@ -162,7 +167,7 @@ const world = [
   units.road,
   units.road,
   units.road,
-  units.intersection,
+  units.intersectionClose,
   units.accessoryRoad,
   units.accessoryRoad,
   units.accessoryRoad,

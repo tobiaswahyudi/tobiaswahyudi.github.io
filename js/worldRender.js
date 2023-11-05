@@ -65,12 +65,15 @@ const spawnAccessories = (unit, currentPos) => {
     accessoriesFront[accessoriesFront.length-1].pos = {...currentPos};
     if(coinFlip()) accessoriesFront.push({...intersectionAccessories.trafficlight_perp});
     accessoriesFront[accessoriesFront.length-1].pos = {...currentPos};
+  } else if(unit == units.intersectionClose) {
+    accessoriesFront.push({...intersectionAccessories.trafficlight_perp});
+    accessoriesFront[accessoriesFront.length-1].pos = {...currentPos};
   } else if(unit == units.accessoryRoad) {
-    if(coinFlip(0.4)) {
+    if(coinFlip(0.6)) {
       accessoriesBack.push({...roadRightAccessories[Math.trunc(Math.random() * roadRightAccessories.length)]});
       accessoriesBack[accessoriesBack.length-1].pos = {...currentPos};
     }
-    if(coinFlip(0.4)) {
+    if(coinFlip(0.6)) {
       accessoriesFront.push({...roadLeftAccessories[Math.trunc(Math.random() * roadLeftAccessories.length)]});
       accessoriesFront[accessoriesFront.length-1].pos = {...currentPos};
     }
@@ -130,8 +133,8 @@ const renderWorld = (ctx, width, height, scrollTop) => {
 
   accessoriesBack.forEach(accessory => {
     ctx.drawImage(accessory.img,
-      accessory.pos.x + accessory.offset.x,
-      accessory.pos.y + accessory.offset.y
+      accessory.pos.x + accessory.offset.x - currentHeight * Math.sqrt(3),
+      accessory.pos.y + accessory.offset.y - currentHeight
     );
   })
 
