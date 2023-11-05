@@ -113,7 +113,8 @@ const scrollListenerForContent = (contentId, scrollTop, scrollBottom) => () => {
   const contentDiv = document.getElementById(contentId)
   const main = document.getElementsByTagName('main')[0];
   
-  const currentHeight = main.scrollTop + (window.innerHeight / 2);
+  const screenHeight = window.innerHeight;
+  const currentHeight = main.scrollTop - 0.5 * screenHeight;
 
   const opacity = smoothe(scrollTop, scrollBottom, 0.1, currentHeight);
   contentDiv.style.opacity = opacity;
@@ -125,9 +126,9 @@ const scrollListenerForContent = (contentId, scrollTop, scrollBottom) => () => {
 }
 
 const scrollListeners = [
-  scrollListenerForContent('splunk-content', 1830, 2140),
-  scrollListenerForContent('layer6-content', 2410, 2720),
-  scrollListenerForContent('road-work-ahead-content', 2900, 3200)
+  scrollListenerForContent('splunk-content', 870, 1180),
+  scrollListenerForContent('layer6-content', 1450, 1760),
+  scrollListenerForContent('road-work-ahead-content', 1940, 2240)
 ];
 
 

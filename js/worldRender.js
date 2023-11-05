@@ -95,8 +95,8 @@ const spawnAccessories = (unit, currentPos) => {
     currentPos.y += unit.size.y;
   });
 
-  console.log(accessoriesBack);
-  console.log(accessoriesFront);
+  // console.log(accessoriesBack);
+  // console.log(accessoriesFront);
 
   accessoriesBack.forEach(unit => initUnit(unit));
   accessoriesFront.forEach(unit => initUnit(unit));
