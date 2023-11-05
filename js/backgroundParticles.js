@@ -8,21 +8,25 @@ const PARTICLES_CONFIG = {
   // Extends tracking of particles outside of the screen by this extent.
   screenPadding: 100,
   // How many particles should be on screen at any given time
-  particleCount: 40,
+  particleCount: 20,
   
   // Probability to deflect from the SE path to an E path or an S path
   deflectionProbability: 0.1,
   // Minimum length on a SE path before the particle can deflect again
-  deflectionMinimalLength: 50,
+  deflectionMinimalLength: 80,
   // Probability to recover from an E path or an S path to the SE path
   recoverProbability: 0.1,
   // Minimum length on an S path before the particle can recover
-  recoveryMinimalLengthSouth: 5,
+  recoveryMinimalLengthSouth: 20,
   // Minimum length on an E path before the particle can recover
-  deflectionMinimalLengthEast: 10,
+  deflectionMinimalLengthEast: 40,
+
+  // Length of path trace
+  minimalPathTrace: 300,
+  maximalPathTrace: 600,
 
   // Maximum paths to track
-  pathsToTrack: 4,
+  pathsToTrack: 10,
 }
 
 // Helper class: circular buffer
@@ -59,12 +63,20 @@ class CircularBuffer {
   }
 }
 
+/** Helper function: linear interpolator
+ * 
+ * Interpolates between a and b by a factor of x \in [0,1].
+ */
+const lerp = (a,b, x) => {
+  return a + x * (b-a);
+}
+
 /**********************************************
  * Particle Class
  **********************************************/
 
 class BackgroundParticle {
-  constructor(x, y, vel, radius, opacity) {
+  constructor(x, y, vel, radius, opacity, pathTrace) {
     this.x = x;
     this.y = y;
     this.vel = vel;
@@ -75,6 +87,7 @@ class BackgroundParticle {
     this.pathPoints = new CircularBuffer(PARTICLES_CONFIG.pathsToTrack + 1);
     this.pathPoints.push([x,y]);
     this.direction = "SE";
+    this.pathTrace = pathTrace;
   }
 
   update() {
@@ -88,7 +101,7 @@ class BackgroundParticle {
           const lastPoint = this.pathPoints.at(0);
           if(Math.hypot(this.x - lastPoint[0], this.y - lastPoint[1]) < PARTICLES_CONFIG.deflectionMinimalLength) break;
 
-          this.direction = (Math.random() < 0.5) ? "S" : "E";
+          this.direction = (Math.random() < 0.45) ? "S" : "E";
           if(this.pathPoints.full()) this.pathPoints.pop();
           this.pathPoints.push([this.x, this.y]);
         }
@@ -110,7 +123,7 @@ class BackgroundParticle {
         this.x += this.vel * Math.sqrt(3);
         if(Math.random() < PARTICLES_CONFIG.recoverProbability) {
           const lastPoint = this.pathPoints.at(0);
-          if(lastPoint[0] - this.x < PARTICLES_CONFIG.recoveryMinimalLengthEast) break;
+          if(this.x - lastPoint[0] < PARTICLES_CONFIG.recoveryMinimalLengthEast) break;
 
           this.direction = "SE";
           if(this.pathPoints.full()) this.pathPoints.pop();
@@ -125,9 +138,9 @@ class BackgroundParticle {
     const screenLeft = screenTop * Math.sqrt(3);
     return (
       (screenLeft - PARTICLES_CONFIG.screenPadding < this.x) &&
-      (this.x < screenLeft + screenWidth + PARTICLES_CONFIG.screenPadding) &&
+      (this.x < screenLeft + screenWidth + PARTICLES_CONFIG.screenPadding + this.pathTrace) &&
       (screenTop - PARTICLES_CONFIG.screenPadding < this.y) &&
-      (this.y < screenTop + screenHeight + PARTICLES_CONFIG.screenPadding)
+      (this.y < screenTop + screenHeight + PARTICLES_CONFIG.screenPadding + this.pathTrace)
     );
   }
 
@@ -140,9 +153,21 @@ class BackgroundParticle {
 
     context.beginPath();
     context.moveTo(this.x - screenLeft, this.y - screenTop);
+    var pathLength = 0;
+    var lastPoint = [this.x, this.y];
     for(let i = 0; i < this.pathPoints.count; i++) {
       const point = this.pathPoints.at(i);
+      const segmentLength = Math.hypot(point[0] - lastPoint[0], point[1] - lastPoint[1]);
+      const remainingLength = this.pathTrace - pathLength;
+      if(segmentLength > remainingLength) {
+        point[0] = lerp(lastPoint[0], point[0], remainingLength / segmentLength);
+        point[1] = lerp(lastPoint[1], point[1], remainingLength / segmentLength);
+        context.lineTo(point[0] - screenLeft, point[1] - screenTop);
+        break;
+      }
       context.lineTo(point[0] - screenLeft, point[1] - screenTop);
+      lastPoint = point;
+      pathLength += segmentLength;
     }
     context.stroke();
 
@@ -159,9 +184,11 @@ const randomParticle = (screenTop, screenWidth, screenHeight) => {
   return new BackgroundParticle(
     screenLeft - PARTICLES_CONFIG.screenPadding + (Math.random() * (screenWidth + 2*PARTICLES_CONFIG.screenPadding)),
     screenTop - PARTICLES_CONFIG.screenPadding + (Math.random() * (screenHeight + 2*PARTICLES_CONFIG.screenPadding)),
+    // TODO: make this configurable
     (1 + Math.random()) * 0.8,
     1 + (Math.random()) * 2,
-    (0.4 + Math.random() * 0.6) * 0.1
+    (0.4 + Math.random() * 0.6) * 0.04,
+    Math.random() * (PARTICLES_CONFIG.maximalPathTrace - PARTICLES_CONFIG.minimalPathTrace) + PARTICLES_CONFIG.minimalPathTrace
   );
 }
 
