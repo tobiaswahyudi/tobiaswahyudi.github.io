@@ -85,16 +85,8 @@ const spawnAccessories = (unit, currentPos) => {
   }
 }
 
-const initialPosition = (width = window.innerWidth, height = window.innerHeight, currentHeight = 0) => {
-  // The world origin is located on this spot
-  const origin = { x: 0.5 * width, y: 0.5 * height }
-
-  return { x: origin.x - currentHeight * Math.sqrt(3), y: origin.y - currentHeight };
-}
-
-
 {
-  let currentPos = initialPosition();
+  let currentPos = {x: 0, y: 0};
 
   world.forEach(unit => {
     initUnit(unit);
@@ -120,7 +112,10 @@ taxicab.src = "img/world/people/taxicab.png";
 const renderWorld = (ctx, width, height, scrollTop) => {
   const currentHeight = scrollTop - 0.5 * height;
 
-  let currentPos = initialPosition(width, height, currentHeight);
+  // The world origin is located on this spot
+  const origin = { x: 0.5 * width, y: 0.5 * height }
+
+  let currentPos = { x: origin.x - currentHeight * Math.sqrt(3), y: origin.y - currentHeight };;
 
   world.forEach(unit => {
     ctx.drawImage(unit.img,
@@ -133,8 +128,8 @@ const renderWorld = (ctx, width, height, scrollTop) => {
 
   accessoriesBack.forEach(accessory => {
     ctx.drawImage(accessory.img,
-      accessory.pos.x + accessory.offset.x - currentHeight * Math.sqrt(3),
-      accessory.pos.y + accessory.offset.y - currentHeight
+      accessory.pos.x + accessory.offset.x + origin.x - currentHeight * Math.sqrt(3),
+      accessory.pos.y + accessory.offset.y + origin.y - currentHeight
     );
   })
 
@@ -144,8 +139,8 @@ const renderWorld = (ctx, width, height, scrollTop) => {
 
   accessoriesFront.forEach(accessory => {
     ctx.drawImage(accessory.img,
-      accessory.pos.x + accessory.offset.x - currentHeight * Math.sqrt(3),
-      accessory.pos.y + accessory.offset.y - currentHeight
+      accessory.pos.x + accessory.offset.x + origin.x  - currentHeight * Math.sqrt(3),
+      accessory.pos.y + accessory.offset.y + origin.y  - currentHeight
     );
   })
 }
