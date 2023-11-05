@@ -3,15 +3,10 @@
 );
 
 @import './navbar.css';
-@import './isometric.css';
 @import './jobContent.css';
-@import './construction.css';
 
 @import './splash.css';
 @import './about.css';
-@import './layer6.css';
-
-@import './roadSegment.css';
 
 html {
   font-size: 14px;
@@ -68,6 +63,11 @@ section {
 a {
   color: inherit;
   text-decoration: none;
+  pointer-events: all;
+}
+
+a.underlined {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 1280px) {
