@@ -36,7 +36,7 @@ const units = {
     offset: {x: -1, y: -1.7}
   },
   land: {
-    src: "img/world/units/land.svg",
+    src: "img/world/units/Land.svg",
     size: {x: 0, y: 0},
     offset: {x: 187, y: -45}
   }
