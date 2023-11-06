@@ -8,8 +8,8 @@ const PARTICLES_CONFIG = {
   // Extends tracking of particles outside of the screen by this extent.
   screenPadding: 100,
   // How many particles should be on screen at any given time
-  particleCount: 30,
-  opacity: 0.06,
+  particleCount: 40,
+  opacity: 0.075,
   
   // Probability to deflect from the SE path to an E path or an S path
   deflectionProbability: 0.1,
@@ -200,7 +200,7 @@ const randomParticle = (screenTop, screenWidth, screenHeight) => {
     1 + (Math.random()) * 2,
     (0.4 + Math.random() * 0.6) * PARTICLES_CONFIG.opacity,
     Math.random() * (PARTICLES_CONFIG.maximalPathTrace - PARTICLES_CONFIG.minimalPathTrace) + PARTICLES_CONFIG.minimalPathTrace,
-    1 + Math.trunc(Math.random() * 3)
+    1 + Math.trunc(Math.random() * 4)
   );
 }
 
