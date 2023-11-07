@@ -16,6 +16,8 @@ const workBreakpoints = [
   ['road-work-ahead-content', 1940, 224],
 ]
 
+const LOG_SCROLL = false;
+
 /** Multiplicative constants.
  * Used to center and scroll the `#main-contents` div.
  */ 
@@ -198,7 +200,7 @@ const scroller = (main, mainContents) => (e) => {
   // const dy = -pos;
   // There's so much CSS/JS interference that I don't fully comprehend why this is zero. :)
   const dy = 0;
-  console.log(pos, main.scrollTop - (window.innerHeight / 2))
+  if(LOG_SCROLL) console.log(main.scrollTop - (window.innerHeight / 2))
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
 
