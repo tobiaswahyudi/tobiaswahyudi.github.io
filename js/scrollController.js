@@ -4,6 +4,18 @@
  * Benedict Tobias H. Wahyudi, April 2022
  *****************************************************************************/
 
+const navbarBreakpoints = [
+  ['about', 100, 330],
+  ['work', 830, 1800],
+]
+
+const workBreakpoints = [
+  ['workexperience-content', 470, 675],
+  ['splunk-content', 870, 1180],
+  ['layer6-content', 1450, 1760],
+  ['road-work-ahead-content', 1940, 224],
+]
+
 /** Multiplicative constants.
  * Used to center and scroll the `#main-contents` div.
  */ 
@@ -152,21 +164,22 @@ const scrollListenerForNavbar = (navId, scrollTop, scrollBottom) => () => {
   }
 }
 
-// Defined here, since it's used for scroll listening and for scrollTo-ing.
-const navbarBreakpoints = [
-  ['about', 100, 330],
-  ['work', 830, 1800],
-]
+const scrollToSection = () => {
+  const section = window.location.hash.slice(1);
+  const main = document.getElementsByTagName('main')[0];
 
-const scrollListeners = [
-  scrollListenerForContent('workexperience-content', 470, 675),
-  scrollListenerForContent('splunk-content', 870, 1180),
-  scrollListenerForContent('layer6-content', 1450, 1760),
-  scrollListenerForContent('road-work-ahead-content', 1940, 2240)
-].concat(
+  const breakpoint = navbarBreakpoints.find(params => params[0] == section);
+  if(breakpoint == undefined) return;
+  main.scrollTo(0, breakpoint[1] + 0.5 * window.innerHeight + 1);
+}
+
+// A list of functions to run whenever the page is scrolled.
+
+const scrollListeners = (
+  workBreakpoints.map(params => scrollListenerForContent(...params))
+).concat(
   navbarBreakpoints.map(params => scrollListenerForNavbar(...params))
 );
-
 
 /**
  * Scroll listener. When the `main` container is scrolled, moves `mainContents` along the isometric `-y` axis.
@@ -251,17 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // On scroll, call the scroller function.
   main.addEventListener('scroll', scroller(main, mainContents));
 
-  // On navbar click, scroll to the section.
-  navbarBreakpoints.forEach(params => {
-    const main = document.getElementsByTagName('main')[0];
-    const navDiv = document.getElementById(params[0]);
-    console.log(params, params[0], navDiv)
-    navDiv.onclick = () => {
-      window.scrollTo(0, 0);
-      main.scrollTo(0, params[1] + 0.5 * window.innerHeight + 1);
-      window.scrollTo(0, 0);
-    }
-  })
+  window.addEventListener('hashchange', function () {
+    scrollToSection();
+  });
+
+  scrollToSection();
 
   /****************************************************************************
    * FINALIZE
