@@ -102,8 +102,11 @@ const spawnAccessories = (unit, currentPos) => {
   accessoriesFront.forEach(unit => initUnit(unit));
 }
 
-const taxicab = new Image();
-taxicab.src = "img/world/people/taxicab.png";
+const taxicabImg = new Image();
+taxicabImg.src = "img/world/people/taxicab.png";
+
+const visitorImg = new Image();
+visitorImg.src = "img/world/people/visitor.svg";
 
 /**********************************************
  * Main Render Loop
@@ -134,7 +137,7 @@ const renderWorld = (ctx, width, height, scrollTop) => {
   })
 
   ctx.globalAlpha = Math.max(0, Math.min((currentHeight - 430) / 250, 1));
-  ctx.drawImage(taxicab, width / 2 - 32, height / 2 - 56);
+  ctx.drawImage(taxicabImg, width / 2 - 32, height / 2 - 56);
   ctx.globalAlpha = 1;
 
   accessoriesFront.forEach(accessory => {
@@ -143,4 +146,36 @@ const renderWorld = (ctx, width, height, scrollTop) => {
       accessory.pos.y + accessory.offset.y + origin.y  - currentHeight
     );
   })
+
+  visitors.forEach(visitor => {
+    ctx.fillStyle = visitor.fill;
+    // ctx.strokeStyle = visitor.stroke;
+
+    ctx.drawImage(visitorImg,
+      visitor.pos.x + origin.x - currentHeight * Math.sqrt(3),
+      visitor.pos.y + origin.y - currentHeight
+    );
+
+    ctx.fillStyle = 'white' ;
+    ctx.textAlign = "center";
+    ctx.font = '200 15px Kanit' ;
+    ctx.transform(1, 0, 0, 1,
+      visitor.pos.x + 8 + origin.x - currentHeight * Math.sqrt(3),
+      visitor.pos.y - 25 + origin.y - currentHeight
+    );
+    ctx.transform(1, 0.6, 0, 1, 0, 0);
+    ctx.fillText (visitor.name, 0, 0);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    ctx.font = '200 10px Kanit' ;
+    ctx.transform(1, 0, 0, 1,
+      visitor.pos.x + 8 + origin.x - currentHeight * Math.sqrt(3),
+      visitor.pos.y - 10 + origin.y - currentHeight
+    );
+    ctx.transform(1, 0.6, 0, 1, 0, 0);
+    ctx.fillText (visitor.title, 0, 0);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    });
+
 }
