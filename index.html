@@ -78,7 +78,7 @@
           <br><br>
           I also have a long-term interest in <a class="underlined" target="_blank" href="https://teenage.engineering/">playful design</a>, <a class="underlined" target="_blank" href="https://pudding.cool/">data-driven storytelling</a>, and entrepreneurship.
           <br><br>
-          Offline, I enjoy reading, visiting art galleries, listening to indie music, and playing music.
+          Offline, I enjoy reading, visiting art galleries, listening & playing music.
           <br><br>
           Currently hooked on: <a class="underlined" target="_blank" href="https://www.harukimurakami.com/">Haruki Murakami</a>, <a class="underlined" target="_blank" href="https://www.youtube.com/c/foxcaptureplan">fox capture plan</a>, and WebGL experiments.
         </p>
@@ -125,6 +125,7 @@
         <ul class="description">
           <li> <i>Heavily</i> inspired by <a class="underlined" target="_blank" href="https://www.y-n10.com/">Yamauchi No.10 Family Office</a>'s website.</li>
           <li> Asset credits: Freepik, macrovector on Freepik, vectorpouch on Freepik.</li>
+          <li> Thanks for reading till the end! <a class="underlined">Click here to leave a visitor.</a></li>
           <li> Please visit my Linkedin and Github and check back soon!</li>
         </ul>
       </div>
@@ -132,21 +133,21 @@
     <div id="dummy"></div>
   </main>
   <!-- stats.js; referenced from https://github.com/VincentGarreau/particles.js/blob/master/demo/index.html -->
-<script src="js/stats.js"></script>
-<script>
-  var stats, update;
-  stats = new Stats;
-  stats.setMode(0);
-  stats.domElement.style.position = 'absolute';
-  stats.domElement.style.right = '0px';
-  stats.domElement.style.top = '0px';
-  document.body.appendChild(stats.domElement);
-  update = function() {
-    stats.begin();
-    stats.end();
+  <script src="js/stats.js"></script>
+  <script>
+    var stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.right = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    update = function() {
+      stats.begin();
+      stats.end();
+      requestAnimationFrame(update);
+    };
     requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-</script>
+  </script>
 </body>
 </html>
