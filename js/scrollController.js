@@ -104,7 +104,7 @@ const smoothe = (min, max, ratio, now) => {
  * Creates a listener that checks if the middle of the screen is within [scrollTop, scrollBottom].
  * If so, it turns the contentDiv opaque, otherwise turns it transparent.
  * 
- * @param {Element} contentDiv 
+ * @param {String} contentId
  * @param {Number} scrollTop 
  * @param {Number} scrollBottom 
  * @returns a listener.
@@ -125,11 +125,47 @@ const scrollListenerForContent = (contentId, scrollTop, scrollBottom) => () => {
   }
 }
 
+/**
+ * Creates a listener that checks if the middle of the screen is within [scrollTop, scrollBottom].
+ * If so, it turns on the .active-nav class on a nav element, otherwise turns the class off.
+ * 
+ * @param {String} navId 
+ * @param {Number} scrollTop 
+ * @param {Number} scrollBottom 
+ * @returns a listener.
+ */
+const scrollListenerForNavbar = (navId, scrollTop, scrollBottom) => () => {
+  const navDiv = document.getElementById(navId);
+  const main = document.getElementsByTagName('main')[0];
+  
+  const screenHeight = window.innerHeight;
+  const currentHeight = main.scrollTop - 0.5 * screenHeight;
+
+  if(scrollTop <= currentHeight && currentHeight <= scrollBottom) {
+    navDiv.classList.add('active-nav');
+    navDiv.style.flex = 2;
+    navDiv.style.fontSize = "1.4em";
+  } else {
+    navDiv.classList.remove('active-nav');
+    navDiv.style.flex = 1;
+    navDiv.style.fontSize = "1em";
+  }
+}
+
+// Defined here, since it's used for scroll listening and for scrollTo-ing.
+const navbarBreakpoints = [
+  ['about', 30, 330],
+  ['work', 500, 1800],
+]
+
 const scrollListeners = [
+  scrollListenerForContent('workexperience-content', 470, 675),
   scrollListenerForContent('splunk-content', 870, 1180),
   scrollListenerForContent('layer6-content', 1450, 1760),
   scrollListenerForContent('road-work-ahead-content', 1940, 2240)
-];
+].concat(
+  navbarBreakpoints.map(params => scrollListenerForNavbar(...params))
+);
 
 
 /**
@@ -147,7 +183,7 @@ const scroller = (main, mainContents) => (e) => {
 
   const dx = POS_CONST * pos;
   const dy = -pos;
-  // console.log(pos, main.scrollTop + (window.innerHeight / 2))
+  console.log(pos, main.scrollTop - (window.innerHeight / 2))
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
 
