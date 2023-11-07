@@ -154,8 +154,8 @@ const scrollListenerForNavbar = (navId, scrollTop, scrollBottom) => () => {
 
 // Defined here, since it's used for scroll listening and for scrollTo-ing.
 const navbarBreakpoints = [
-  ['about', 30, 330],
-  ['work', 500, 1800],
+  ['about', 100, 330],
+  ['work', 830, 1800],
 ]
 
 const scrollListeners = [
@@ -182,7 +182,9 @@ const scroller = (main, mainContents) => (e) => {
   const y0 = HEIGHT_CONST * main.offsetHeight;
 
   const dx = POS_CONST * pos;
-  const dy = -pos;
+  // const dy = -pos;
+  // There's so much CSS/JS interference that I don't fully comprehend why this is zero. :)
+  const dy = 0;
   console.log(pos, main.scrollTop - (window.innerHeight / 2))
 
   mainContents.style.transform = isometric(x0 + dx, y0 + dy);
@@ -248,6 +250,18 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // On scroll, call the scroller function.
   main.addEventListener('scroll', scroller(main, mainContents));
+
+  // On navbar click, scroll to the section.
+  navbarBreakpoints.forEach(params => {
+    const main = document.getElementsByTagName('main')[0];
+    const navDiv = document.getElementById(params[0]);
+    console.log(params, params[0], navDiv)
+    navDiv.onclick = () => {
+      window.scrollTo(0, 0);
+      main.scrollTo(0, params[1] + 0.5 * window.innerHeight + 1);
+      window.scrollTo(0, 0);
+    }
+  })
 
   /****************************************************************************
    * FINALIZE
