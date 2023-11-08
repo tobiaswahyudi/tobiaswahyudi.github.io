@@ -9,7 +9,7 @@
  * Helper for finding object offset placements
  **********************************************/
 
-var ACTIVE_EDITING = units.trafficlight_perp;
+var ACTIVE_EDITING = null;
 
 document.addEventListener('keydown', function (event) {
   const key = event.key;
@@ -18,27 +18,23 @@ document.addEventListener('keydown', function (event) {
   switch (event.key) {
     case "a":
       // Left pressed
-      ACTIVE_EDITING.offset.x -= 1;
+      ACTIVE_EDITING.anchor.x -= 1;
       break;
     case "d":
       // Right pressed
-      ACTIVE_EDITING.offset.x += 1;
+      ACTIVE_EDITING.anchor.x += 1;
       break;
     case "w":
       // Up pressed
-      ACTIVE_EDITING.offset.y -= 1;
+      ACTIVE_EDITING.anchor.y -= 1;
       break;
     case "s":
       // Down pressed
-      ACTIVE_EDITING.offset.y += 1;
+      ACTIVE_EDITING.anchor.y += 1;
       break;
   }
-  console.log(ACTIVE_EDITING.offset);
+  console.log(ACTIVE_EDITING.anchor);
 });
-
-// Helper for coin flip.
-
-const coinFlip = (successWeight = 0.5) => Math.random() < successWeight;
 
 /**
  * Resizes a canvas to fit the screen.
@@ -105,9 +101,6 @@ const spawnAccessories = (unit, currentPos) => {
 const taxicabImg = new Image();
 taxicabImg.src = "img/world/people/taxicab.png";
 
-const visitorImg = new Image();
-visitorImg.src = "img/world/people/visitor.svg";
-
 /**********************************************
  * Main Render Loop
  **********************************************/
@@ -148,34 +141,12 @@ const renderWorld = (ctx, width, height, scrollTop) => {
   })
 
   visitors.forEach(visitor => {
-    ctx.fillStyle = visitor.fill;
-    // ctx.strokeStyle = visitor.stroke;
+    randomMoveVisitor(visitor);
+    drawVisitor(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
+  });
 
-    ctx.drawImage(visitorImg,
-      visitor.pos.x + origin.x - currentHeight * Math.sqrt(3),
-      visitor.pos.y + origin.y - currentHeight
-    );
-
-    ctx.fillStyle = 'white' ;
-    ctx.textAlign = "center";
-    ctx.font = '200 15px Kanit' ;
-    ctx.transform(1, 0, 0, 1,
-      visitor.pos.x + 8 + origin.x - currentHeight * Math.sqrt(3),
-      visitor.pos.y - 25 + origin.y - currentHeight
-    );
-    ctx.transform(1, 0.6, 0, 1, 0, 0);
-    ctx.fillText (visitor.name, 0, 0);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-    ctx.font = '200 10px Kanit' ;
-    ctx.transform(1, 0, 0, 1,
-      visitor.pos.x + 8 + origin.x - currentHeight * Math.sqrt(3),
-      visitor.pos.y - 10 + origin.y - currentHeight
-    );
-    ctx.transform(1, 0.6, 0, 1, 0, 0);
-    ctx.fillText (visitor.title, 0, 0);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-    });
+  visitors.forEach(visitor => {
+    drawVisitorText(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
+  });
 
 }

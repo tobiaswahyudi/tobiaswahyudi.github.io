@@ -72,6 +72,13 @@ a.underlined {
   text-decoration: underline;
 }
 
+.floater {
+  position: fixed;
+  margin: 2rem;
+  bottom: 0;
+  right: 0;
+}
+
 @media screen and (max-width: 1280px) {
   html {
     font-size: 12px;

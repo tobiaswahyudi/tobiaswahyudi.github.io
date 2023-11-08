@@ -161,7 +161,6 @@ class BackgroundParticle {
       const xOffset = number * PARTICLES_CONFIG.spaceBetween * this.radius * Math.sqrt(3);
       const yOffset = - number * PARTICLES_CONFIG.spaceBetween * this.radius;
 
-      context.beginPath();
       context.moveTo(this.x + xOffset - screenLeft, this.y + yOffset - screenTop);
       var pathLength = 0;
       var lastPoint = [this.x + xOffset, this.y + yOffset];

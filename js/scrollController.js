@@ -5,15 +5,15 @@
  *****************************************************************************/
 
 const navbarBreakpoints = [
-  ['about', 100, 330],
-  ['work', 830, 1800],
+  ['about', 100, 580],
+  ['work', 580, 1800],
 ]
 
 const workBreakpoints = [
   ['workexperience-content', 470, 675],
   ['splunk-content', 870, 1180],
   ['layer6-content', 1450, 1760],
-  ['road-work-ahead-content', 1940, 224],
+  ['road-work-ahead-content', 1940, 2240],
 ]
 
 const LOG_SCROLL = false;

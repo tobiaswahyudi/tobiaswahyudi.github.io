@@ -16,12 +16,16 @@
 
     gtag('config', 'G-PM47MH4WZH');
   </script>
+  <script src="js/jscolor.min.js"></script>
+  <script src="js/common.js"></script>
   <script src="js/scrollController.js"></script>
   <script src="js/visitors.js"></script>
+  <script src="js/visitorRender.js"></script>
   <script src="js/world.js"></script>
   <script src="js/worldRender.js"></script>
   <script src="js/backgroundParticles.js"></script>
   <script src="js/canvasLoop.js"></script>
+  
 </head>
 
 <body>
@@ -131,6 +135,15 @@
       </div>
     </div>
     <div id="dummy"></div>
+    <div class="floater">
+      Fill Color
+      <br>
+      <input value="#3399FF" id="colorpicker-fill" data-jscolor="{}">
+      <br>
+      Stroke Color
+      <br>
+      <input value="#3399FF" id="colorpicker-stroke" data-jscolor="{}">
+    </div>
   </main>
   <!-- stats.js; referenced from https://github.com/VincentGarreau/particles.js/blob/master/demo/index.html -->
   <script src="js/stats.js"></script>
