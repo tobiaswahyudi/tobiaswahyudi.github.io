@@ -124,14 +124,14 @@ const drawVisitorText = (ctx, xOffset, yOffset, visitor) => {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('colorpicker-fill').oninput = e => {
-    visitors[VISITOR_EDITING].fill = e.target.value;
-    initializeVisitor(visitors[VISITOR_EDITING]);
-  }
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.getElementById('colorpicker-fill').oninput = e => {
+//     visitors[VISITOR_EDITING].fill = e.target.value;
+//     initializeVisitor(visitors[VISITOR_EDITING]);
+//   }
 
-  document.getElementById('colorpicker-stroke').oninput = e => {
-    visitors[VISITOR_EDITING].stroke = e.target.value;
-    initializeVisitor(visitors[VISITOR_EDITING]);
-  }
-})
+//   document.getElementById('colorpicker-stroke').oninput = e => {
+//     visitors[VISITOR_EDITING].stroke = e.target.value;
+//     initializeVisitor(visitors[VISITOR_EDITING]);
+//   }
+// })
