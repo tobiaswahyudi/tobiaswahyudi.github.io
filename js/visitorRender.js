@@ -6,10 +6,15 @@ const VISITOR_BOUNCE_COEFFICIENT = 32;
 
 const VISITOR_EDITING = 0;
 
+const VISITOR_FEET_OFFSET = {x: 7, y: 41};
+
 const visitorImg = (fill, stroke) => `
 <svg width="15" height="44" viewBox="0 0 15 44" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M6.1859 32.4524L5.75288 32.2024V32.7024V39.8214L2.49498 37.9405V30.8214V30.3214L2.06197 30.0714L0.433013 29.131V16.2976C0.433013 12.9783 3.29549 11.7836 7.01068 13.9286C10.7259 16.0735 13.5884 20.5735 13.5884 23.8929V36.7262L11.9594 35.7857L11.5264 35.5357V36.0357V43.1548L8.26848 41.2738V34.1548V33.6548L7.83547 33.4048L6.1859 32.4524ZM7.01068 12.9286C4.28897 11.3572 2.08258 7.53562 2.08258 4.39286C2.08258 1.25009 4.28897 -0.0237626 7.01068 1.54762C9.73239 3.119 11.9388 6.94057 11.9388 10.0833C11.9388 13.2261 9.73239 14.5 7.01068 12.9286Z"
+    d="M6.1859 32.4524L5.75288 32.2024V32.7024V39.8214L2.49498 37.9405V30.8214V30.3214L2.06197 30.0714L0.433013 29.131V16.2976C0.433013 12.9783 3.29549
+    11.7836 7.01068 13.9286C10.7259 16.0735 13.5884 20.5735 13.5884 23.8929V36.7262L11.9594 35.7857L11.5264 35.5357V36.0357V43.1548L8.26848
+    41.2738V34.1548V33.6548L7.83547 33.4048L6.1859 32.4524ZM7.01068 12.9286C4.28897 11.3572 2.08258 7.53562 2.08258 4.39286C2.08258 1.25009 4.28897
+    -0.0237626 7.01068 1.54762C9.73239 3.119 11.9388 6.94057 11.9388 10.0833C11.9388 13.2261 9.73239 14.5 7.01068 12.9286Z"
     fill="${fill}"
     stroke="${stroke}"
   />
@@ -32,11 +37,14 @@ visitors.forEach(initializeVisitor);
 const randomMoveVisitor = (visitor) => {
   if(visitor.target.x == visitor.realLocation.x && visitor.target.y == visitor.realLocation.y) {
     if(coinFlip(0.01)) {
-      const x = 2 * Math.random() - 1;
-      const y = 2 * Math.random() - 1;
+      const theta = Math.random() * 2 * Math.PI;
+      const radius = Math.sqrt(Math.random());
 
-      const dx = VISITOR_WANDER_RADIUS * (x + y) * Math.sqrt(3);
-      const dy = VISITOR_WANDER_RADIUS * (y - x);
+      const x = radius * Math.cos(theta);
+      const y = radius * Math.sin(theta);
+
+      const dx = VISITOR_WANDER_RADIUS * x * Math.sqrt(3);
+      const dy = VISITOR_WANDER_RADIUS * y;
 
       visitor.target = {x: visitor.anchor.x + dx, y: visitor.anchor.y + dy};
       visitor.moveTicks = 0;
@@ -73,24 +81,25 @@ const drawVisitor = (ctx, xOffset, yOffset, visitor) => {
     visitor.pos.x + xOffset,
     visitor.pos.y + yOffset
   );
+}
 
-  // ctx.strokeStyle = visitor.fill;
-  // ctx.fillStyle = visitor.fill;
+const drawVisitorRadius = (ctx, xOffset, yOffset, visitor) => {
+    ctx.strokeStyle = visitor.fill;
+    ctx.fillStyle = visitor.fill;
 
-  // ctx.beginPath(); 
-  // ctx.arc(visitor.pos.x + xOffset, visitor.pos.y + yOffset, 1, 0, Math.PI * 2);
-  // ctx.closePath();
-  // ctx.fill();
+    ctx.beginPath(); 
+    ctx.arc(visitor.target.x + VISITOR_FEET_OFFSET.x + xOffset, visitor.target.y + VISITOR_FEET_OFFSET.y + yOffset, 1, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
 
-  // ctx.lineWidth = 1;
-  // ctx.beginPath();
-  // ctx.moveTo(xOffset + visitor.anchor.x - 2 * VISITOR_WANDER_RADIUS * Math.sqrt(3), visitor.anchor.y + yOffset);
-  // ctx.lineTo(xOffset + visitor.anchor.x, visitor.anchor.y + 2 * VISITOR_WANDER_RADIUS + yOffset);
-  // ctx.lineTo(xOffset + visitor.anchor.x + 2 * VISITOR_WANDER_RADIUS * Math.sqrt(3), visitor.anchor.y + yOffset);
-  // ctx.lineTo(xOffset + visitor.anchor.x, visitor.anchor.y - 2 * VISITOR_WANDER_RADIUS + yOffset);
-  // ctx.lineTo(xOffset + visitor.anchor.x - 2 * VISITOR_WANDER_RADIUS * Math.sqrt(3), visitor.anchor.y + yOffset);
-  // ctx.closePath();
-  // ctx.stroke();
+
+    ctx.strokeStyle = visitor.fill;
+    ctx.lineWidth = 1;
+
+    ctx.beginPath(); 
+    ctx.ellipse(visitor.anchor.x + VISITOR_FEET_OFFSET.x + xOffset, visitor.anchor.y + VISITOR_FEET_OFFSET.y + yOffset, VISITOR_WANDER_RADIUS * Math.sqrt(3), VISITOR_WANDER_RADIUS, 0, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.stroke();
 }
 
 const drawVisitorText = (ctx, xOffset, yOffset, visitor) => {
