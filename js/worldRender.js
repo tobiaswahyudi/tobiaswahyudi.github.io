@@ -140,13 +140,14 @@ const renderWorld = (ctx, width, height, scrollTop) => {
     );
   })
 
-  visitors.forEach(visitor => {
-    randomMoveVisitor(visitor);
-    drawVisitor(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
-  });
+  // visitors.forEach(visitor => {
+  //   randomMoveVisitor(visitor);
+  //   drawVisitor(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
+  //   if(visitor == visitors[VISITOR_EDITING]) drawVisitorRadius(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
+  // });
 
-  visitors.forEach(visitor => {
-    drawVisitorText(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
-  });
+  // visitors.forEach(visitor => {
+  //   drawVisitorText(ctx, origin.x - currentHeight * Math.sqrt(3), origin.y - currentHeight, visitor)
+  // });
 
 }

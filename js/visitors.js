@@ -6,8 +6,6 @@ const visitors = [
     pos: {x: 2104, y: 1345},
     fill: "#1D835E",
     stroke: "#73D07D",
-    linkedin: "https://www.linkedin.com/in/tobias-wahyudi/",
-    comment: "Hello!"
   },
   {
     name: "hansa",

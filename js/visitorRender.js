@@ -3,10 +3,10 @@ const VISITOR_WANDER_RADIUS = 50;
 const VISITOR_MOVE_SPEED = 0.5;
 // This affects how bouncy the visitors walk. Lower is more bouncy
 const VISITOR_BOUNCE_COEFFICIENT = 32;
+const VISITOR_FEET_OFFSET = {x: 7, y: 41};
 
 const VISITOR_EDITING = 0;
-
-const VISITOR_FEET_OFFSET = {x: 7, y: 41};
+const SHOW_VISITOR_RADIUS = false;
 
 const visitorImg = (fill, stroke) => `
 <svg width="15" height="44" viewBox="0 0 15 44" fill="none" xmlns="http://www.w3.org/2000/svg">

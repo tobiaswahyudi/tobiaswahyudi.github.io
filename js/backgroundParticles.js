@@ -8,7 +8,7 @@ const PARTICLES_CONFIG = {
   // Extends tracking of particles outside of the screen by this extent.
   screenPadding: 100,
   // How many particles should be on screen at any given time
-  particleCount: 40,
+  particleCount: 20,
   opacity: 0.075,
   
   // Probability to deflect from the SE path to an E path or an S path
