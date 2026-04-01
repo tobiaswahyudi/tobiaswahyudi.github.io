@@ -15,6 +15,20 @@
     color-scheme: light dark;
     --project-image-width: 8rem !important;
   }
+
+  .art-section {
+    grid-template-columns: auto auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 10px !important;
+  }
+
+  .art-section {
+    grid-template-columns: auto !important;
+  }
 }
 
 html {
@@ -45,7 +59,7 @@ body {
 }
 
 main {
-  max-width: 720px;
+  max-width: 48rem;
   margin: 0 auto;
   scroll-behavior: smooth;
 
@@ -133,4 +147,21 @@ article {
   align-self: flex-end;
   text-decoration: line-through;
   cursor: not-allowed;
+}
+
+.art-section {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 3rem 1rem;
+  justify-content: center;
+}
+
+.art-card {
+  flex: 1 1 12rem;
+  max-width: 20rem;
+}
+
+.art-image {
+  width: 100%;
+  object-fit: contain;
 }
