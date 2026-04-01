@@ -15,10 +15,6 @@
     color-scheme: light dark;
     --project-image-width: 8rem !important;
   }
-
-  .art-section {
-    grid-template-columns: auto auto !important;
-  }
 }
 
 @media (max-width: 480px) {
@@ -125,7 +121,7 @@ article {
   display: inline-block;
   padding: 1rem;
   background-color: #f0f0f0;
-  outline: 1px solid #000000;
+  /* outline: 1px solid #000000; */
 }
 
 .project-image {
@@ -140,7 +136,7 @@ article {
   width: var(--project-image-width);
   overflow: hidden;
   flex: 0 0 var(--project-image-width);
-  outline: 1px solid #000000;
+  /* outline: 1px solid #000000; */
 }
 
 .read-more {
@@ -152,7 +148,7 @@ article {
 
 .art-section {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   gap: 3rem 1rem;
   justify-content: center;
 }
@@ -165,4 +161,9 @@ article {
 .art-image {
   width: 100%;
   object-fit: contain;
+}
+
+.art-description {
+  padding: 1rem;
+  background-color: #f0f0f0;
 }
