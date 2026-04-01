@@ -18,9 +18,9 @@
 }
 
 @media (max-width: 480px) {
-  html {
+  /* html {
     font-size: 10px !important;
-  }
+  } */
 
   .art-section {
     grid-template-columns: auto !important;
