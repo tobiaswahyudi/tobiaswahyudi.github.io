@@ -42,6 +42,7 @@ html {
   color: rgb(41, 19, 3);
   margin: 0;
   padding: 0;
+  background-color: #ececec;
 }
 
 a {
@@ -63,7 +64,7 @@ main {
   margin: 0 auto;
   scroll-behavior: smooth;
 
-  background-color: #ffffff0e;
+  background-color: #ffffff10;
   padding: 2rem;
 }
 
