@@ -19,11 +19,11 @@ const NAME_STRING = 'Tobias Wahyudi';
 
 const updateName = () => {
     name.innerHTML = NAME_STRING.split('').map(letter => {
-        if(Math.random() < 0.06) {
+        if(Math.random() < 0.02) {
             return NAME_LETTERS[letter][Math.floor(Math.random() * NAME_LETTERS[letter].length)];
         }
         return letter;
     }).join('');
 }
 
-setInterval(updateName, 600);
+setInterval(updateName, 300);

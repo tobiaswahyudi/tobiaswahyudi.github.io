@@ -40,6 +40,7 @@ const setShimmer = () => {
   const drawShimmer = () => {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "none";
 
     const timeNow = Date.now();
 
@@ -61,7 +62,15 @@ const setShimmer = () => {
           continue;
         const letter = letters[(row + col) % 2][lum];
         // ctx.fillStyle = '#ff0000'
-        // ctx.fillRect(col * CELL_SIZE, row * CELL_SIZE, 10, 10);
+        if (row % 3 != rowMajorOffset || col % 3 != colMajorOffset) {
+          ctx.fillStyle = colors[lum] + "15";
+          ctx.fillRect(
+            col * CELL_SIZE + colOffset,
+            row * CELL_SIZE + rowOffset,
+            CELL_SIZE,
+            CELL_SIZE,
+          );
+        }
         ctx.fillStyle = colors[lum];
         ctx.fillText(
           letter,
@@ -76,7 +85,7 @@ const setShimmer = () => {
     clearInterval(updateInterval);
   }
   updateInterval = setInterval(drawShimmer, 1000 / 60);
-}
+};
 
 setShimmer();
 // window.addEventListener("resize", setShimmer);
