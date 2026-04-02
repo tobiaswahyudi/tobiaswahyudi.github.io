@@ -43,8 +43,6 @@ const setSvgBorders = () => {
     svg.appendChild(
       roughSvg.rectangle(10 + sn(), 10 + sn(), size.width + sn(), size.height + sn(), { roughness: ROUGHNESS }),
     );
-
-    console.log(element, size.width, size.height);
   });
 };
 
