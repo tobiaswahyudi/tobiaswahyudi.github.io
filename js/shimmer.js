@@ -20,7 +20,7 @@ let updateInterval = undefined;
 
 const setShimmer = () => {
   console.log("setShimmer");
-  
+
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
@@ -79,4 +79,4 @@ const setShimmer = () => {
 }
 
 setShimmer();
-window.addEventListener("resize", setShimmer);
+// window.addEventListener("resize", setShimmer);
