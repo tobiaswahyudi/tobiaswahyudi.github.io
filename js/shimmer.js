@@ -1,4 +1,4 @@
-const CELL_SIZE = 24;
+const CELL_SIZE = 32;
 
 const TIME_FACTOR = 0.0001;
 const SPACE_FACTOR = 0.27;
@@ -8,13 +8,11 @@ const letters = [
   ["∘", "⚪︎", "O"],
 ];
 
-const colors = ["#a0a0a0", "#444444", "#d4d4d4"];
+const colors = ["#a0a0a0", "#444444", "#e4e4e4"];
 const backgroundColor = "#ececec";
 
 const canvas = document.getElementById("shimmer");
 const ctx = canvas.getContext("2d");
-ctx.font = "bold 12px 'M PLUS Rounded 1c', sans-serif";
-ctx.textAlign = "left";
 
 let updateInterval = undefined;
 
@@ -23,6 +21,9 @@ const setShimmer = () => {
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  ctx.font = "bold 14px 'M PLUS Rounded 1c', sans-serif";
+  ctx.textAlign = "left";
 
   let numCols = Math.floor(canvas.width / CELL_SIZE);
   let numRows = Math.floor(canvas.height / CELL_SIZE);
@@ -64,12 +65,12 @@ const setShimmer = () => {
         // ctx.fillStyle = '#ff0000'
         if (row % 3 != rowMajorOffset || col % 3 != colMajorOffset) {
           ctx.fillStyle = colors[lum] + "15";
-          ctx.fillRect(
-            col * CELL_SIZE + colOffset,
-            row * CELL_SIZE + rowOffset,
-            CELL_SIZE,
-            CELL_SIZE,
-          );
+          // ctx.fillRect(
+          //   col * CELL_SIZE + colOffset,
+          //   row * CELL_SIZE + rowOffset,
+          //   CELL_SIZE,
+          //   CELL_SIZE,
+          // );
         }
         ctx.fillStyle = colors[lum];
         ctx.fillText(
