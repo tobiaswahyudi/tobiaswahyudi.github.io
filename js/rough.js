@@ -5,6 +5,15 @@ const ROUGHNESS = 2;
 
 const sn = () => (Math.random() - 0.5) * 2 * SN_FACTOR;
 
+let svgLines = []
+
+const clearSvgLines = () => {
+  svgLines.forEach(el => {
+    el.remove()
+  })
+  svgLines = []
+}
+
 const setSvgBorders = () => {
   elements.forEach((element) => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -23,6 +32,7 @@ const setSvgBorders = () => {
         svg.appendChild(
           roughSvg.line(10 + sn(), 10 + sn(), size.width + sn(), size.height + 10 + sn(), { roughness: ROUGHNESS }),
         );
+        svgLines.push(svg)
       return;
     }
     if (element.tagName == "IMG") {
@@ -43,11 +53,20 @@ const setSvgBorders = () => {
     svg.appendChild(
       roughSvg.rectangle(10 + sn(), 10 + sn(), size.width + sn(), size.height + sn(), { roughness: ROUGHNESS }),
     );
+    svgLines.push(svg)
   });
 };
 
+const setLines = () => {
+  clearSvgLines()
+  // Do it twice to get four strokes
+  setSvgBorders();
+  setSvgBorders();
+}
+
+const LINE_UPDATE_INTERVAL = 600;
+
 window.onload = () => {
-    // Do it twice to get four strokes
-  setSvgBorders();
-  setSvgBorders();
+  setLines()
+  setInterval(setLines, LINE_UPDATE_INTERVAL)
 };

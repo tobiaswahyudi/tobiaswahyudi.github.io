@@ -26,4 +26,7 @@ const updateName = () => {
     }).join('');
 }
 
-setInterval(updateName, 300);
+// synced with the lines
+const NAME_UPDATE_INTERVAL = 600;
+
+setInterval(updateName, NAME_UPDATE_INTERVAL);
