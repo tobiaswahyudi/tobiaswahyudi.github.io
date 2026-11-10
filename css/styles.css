@@ -88,6 +88,17 @@ h3 {
   margin: 0;
 }
 
+.name-hbox {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+}
+
+#myface {
+  height: 6rem;
+}
+
 .contact-section-item {
   display: flex;
   align-items: center;
