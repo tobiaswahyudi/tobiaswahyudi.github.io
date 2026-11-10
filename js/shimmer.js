@@ -1,4 +1,4 @@
-const CELL_SIZE = 32;
+const CELL_SIZE = 48;
 
 const TIME_FACTOR = 0.0001;
 const SPACE_FACTOR = 0.27;
@@ -8,7 +8,7 @@ const letters = [
   ["∘", "⚪︎", "O"],
 ];
 
-const colors = ["#a0a0a0", "#444444", "#e4e4e4"];
+const colors = ["#a0a0a0", "#444444", "#e0e0e0"];
 const backgroundColor = "#ececec";
 
 const canvas = document.getElementById("shimmer");
@@ -19,10 +19,13 @@ let updateInterval = undefined;
 const setShimmer = () => {
   console.log("setShimmer");
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth * 2;
+  canvas.height = window.innerHeight * 2;
 
-  ctx.font = "bold 14px 'M PLUS Rounded 1c', sans-serif";
+  canvas.style.width = `${window.innerWidth}px`;
+  canvas.style.height = `${window.innerHeight}px`;
+
+  ctx.font = "bold 28px 'M PLUS Rounded 1c', sans-serif";
   ctx.textAlign = "left";
 
   let numCols = Math.floor(canvas.width / CELL_SIZE);
