@@ -1,4 +1,4 @@
-const CELL_SIZE = 48;
+const CELL_SIZE = 64;
 
 const TIME_FACTOR = 0.0001;
 const SPACE_FACTOR = 0.27;
